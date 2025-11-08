@@ -1,0 +1,46 @@
+// src/app/layout.tsx
+import type { Metadata } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
+import Favicon from '../components/Favicon/Favicon';
+import '../styles/globals.scss';
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-primary',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-heading',
+});
+
+export const metadata: Metadata = {
+  title: 'Myrtle Solutions',
+  description: 'Your trusted partner for innovative business solutions',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <Favicon />
+      </head>
+      <body>
+              <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}

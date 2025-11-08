@@ -1,0 +1,453 @@
+// src/components/Navbar/Navbar.module.scss
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(250 248 245);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(7, 48, 32, 0.1);
+    z-index: 1000;
+    padding: 1.2rem 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &.scrolled {
+        padding: 0.8rem 0;
+        background: #0D4A2D;
+        box-shadow: 0 4px 20px rgba(7, 48, 32, 0.1);
+        border-bottom-color: rgba(211, 175, 94, 0.2);
+
+        // Change logo text color to white when scrolled
+        .logoText {
+            color: #ffffff;
+        }
+
+        // Change logo subtitle color to gold when scrolled
+        .logoSubtitle {
+            color: #D3AF5E;
+        }
+
+        // Change mobile menu button color to white when scrolled
+        .mobileMenuButton span {
+            background: #ffffff;
+        }
+    }
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    flex: 1;
+}
+.navContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+// Logo Styles
+.logo {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+}
+
+.logoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logoText {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #073020;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.logoSubtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #D3AF5E;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.logoImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+// Desktop Navigation Links
+.navLinks {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.navLink {
+    position: relative;
+    text-decoration: none;
+    color: #073020;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    .linkText {
+        position: relative;
+        z-index: 2;
+        transition: color 0.3s ease;
+    }
+
+    .linkHover {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #D3AF5E, #E8C872);
+        transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        border-radius: 1px;
+    }
+
+    // Default state (not scrolled)
+    &:hover {
+        color: #D3AF5E;
+
+        .linkHover {
+            width: 100%;
+        }
+    }
+
+    &.active {
+        color: #D3AF5E;
+        font-weight: 600;
+
+        .linkHover {
+            width: 100%;
+            background: #D3AF5E;
+        }
+    }
+
+    // Scrolled state - navlinks turn white
+    .navbar.scrolled & {
+        color: #ffffff;
+
+        &:hover {
+            color: #D3AF5E;
+
+            .linkHover {
+                width: 100%;
+                background: linear-gradient(90deg, #D3AF5E, #E8C872);
+            }
+        }
+
+        &.active {
+            color: #D3AF5E;
+            font-weight: 600;
+
+            .linkHover {
+                width: 100%;
+                background: #D3AF5E;
+            }
+        }
+    }
+}
+
+// CTA Button
+.navCTA {
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.ctaButton {
+    background: linear-gradient(135deg, #073020, #0D4A2D);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    // Default state
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(7, 48, 32, 0.3);
+
+        &::before {
+            left: 100%;
+        }
+    }
+
+    // Scrolled state - change to gold gradient
+    .navbar.scrolled & {
+        background: linear-gradient(135deg, #D3AF5E, #E8C872);
+        color: #073020;
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(211, 175, 94, 0.4);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Mobile Menu Button
+.mobileMenuButton {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 1001;
+
+    @media (max-width: 1024px) {
+        display: flex;
+    }
+
+    span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: #073020;
+        border-radius: 1px;
+        transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+        transform-origin: center;
+    }
+
+    // Scrolled state - change hamburger to white
+    .navbar.scrolled & span {
+        background: #ffffff;
+    }
+
+    &.active {
+        span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        // Active state in scrolled navbar
+        .navbar.scrolled & span {
+            background: #ffffff;
+        }
+    }
+}
+
+// Mobile Menu
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(7, 48, 32, 0.1);
+    box-shadow: 0 4px 20px rgba(7, 48, 32, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    // Scrolled state - mobile menu background
+    .navbar.scrolled & {
+        background: rgba(13, 74, 45, 0.98);
+        border-top-color: rgba(211, 175, 94, 0.2);
+    }
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
+}
+
+.mobileMenuContent {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobileNavLink {
+    text-decoration: none;
+    color: #073020;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(7, 48, 32, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+        background: #D3AF5E;
+        transition: width 0.3s ease;
+    }
+
+    // Default state
+    &:hover {
+        color: #D3AF5E;
+        padding-left: 1rem;
+
+        &::before {
+            width: 30px;
+        }
+    }
+
+    &.active {
+        color: #D3AF5E;
+        font-weight: 600;
+
+        &::before {
+            width: 50px;
+            background: #D3AF5E;
+        }
+    }
+
+    // Scrolled state - mobile navlinks turn white
+    .navbar.scrolled & {
+        color: #ffffff;
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+
+        &:hover {
+            color: #D3AF5E;
+            padding-left: 1rem;
+
+            &::before {
+                width: 30px;
+                background: #D3AF5E;
+            }
+        }
+
+        &.active {
+            color: #D3AF5E;
+            font-weight: 600;
+
+            &::before {
+                width: 50px;
+                background: #D3AF5E;
+            }
+        }
+    }
+}
+
+.mobileCTA {
+    background: linear-gradient(135deg, #073020, #0D4A2D);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(7, 48, 32, 0.3);
+    }
+
+    // Scrolled state - mobile CTA changes to gold
+    .navbar.scrolled & {
+        background: linear-gradient(135deg, #D3AF5E, #E8C872);
+        color: #073020;
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(211, 175, 94, 0.4);
+        }
+    }
+}
+
+// Scroll behavior enhancement
+html {
+    scroll-behavior: smooth;
+}
+
+// Focus styles for accessibility
+.navLink:focus-visible,
+.ctaButton:focus-visible,
+.mobileNavLink:focus-visible {
+    outline: 2px solid #D3AF5E;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .navLink,
+    .ctaButton,
+    .mobileMenu,
+    .mobileNavLink {
+        transition: none;
+    }
+
+    .linkHover,
+    .ctaButton::before {
+        transition: none;
+    }
+}
