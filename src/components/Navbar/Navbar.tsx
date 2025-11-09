@@ -29,27 +29,19 @@ export default function Navbar() {
     { href: '/navbar/oursolutions', label: 'Our Solutions' },
     { href: '/navbar/ourpartners', label: 'Our Partners/Projects' },
     { href: '/navbar/contactus', label: 'Contact Us' },
+
   ];
 
-//   About Us
-// Our Expertise
-// Our Solutions
-// Our Partners/Projects
-// Contact Us
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className="container">
+      <div className='container'>
         <div className={styles.navContent}>
           <Link href="/" className={styles.logo} onClick={closeMobileMenu}>
-            {/* <div className={styles.logoContent}>
-              <span className={styles.logoText}>Myrtle</span>
-              <span className={styles.logoSubtitle}>SOLUTIONS</span>
-            </div> */}
-          <Image src={Logo} alt="Myrtle Solutions Logo" className={styles.logoImg} />
+          <Image src={Logo} alt="Myrtle Solutions" className={styles.logoImg} />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -70,8 +62,8 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className={styles.navCTA}>
-            <Link href="/get-started" className={styles.ctaButton}>
-              Get Started
+            <Link href=" /navbar/consultation" className={styles.ctaButton}>
+             Open Consultation
             </Link>
           </div>
 
@@ -105,11 +97,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/get-started"
+              href="/navbar/consultation"
               className={styles.mobileCTA}
               onClick={closeMobileMenu}
             >
-              Get Started
+              Open Consultation
             </Link>
           </div>
         </div>

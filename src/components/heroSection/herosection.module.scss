@@ -100,7 +100,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: $z-sticky;
+  z-index: $z-dropdown;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +173,7 @@
     width: 100%;
     height: auto;
     min-height: 280px;
-    padding: $space-8 $space-4;
+    // padding: $space-8 $space-4;
     margin-top: 0;
     border-radius: $radius-xl;
     background: linear-gradient(
@@ -246,7 +246,7 @@
   
   @media (max-width: 480px) {
     font-size: $text-2xl;
-    padding: 0;
+    // padding: 0;
     line-height: 2.1rem;
     margin-bottom: $space-3;
   }
