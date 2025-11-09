@@ -1,4 +1,4 @@
-// src/components/PreloadScreen/PreloadScreen.module.scss
+@use '../../styles/variables' as *;
 
 .preloadScreen {
   position: fixed;
@@ -6,13 +6,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #073020 0%, #0a3d29 50%, #073020 100%);
+  background: linear-gradient(135deg, $primary 0%, $tertiary 50%, $primary 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: $z-preload;
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
+  font-family: $font-family-primary;
 
   // Entrance Animation
   &.entering {
@@ -93,18 +93,18 @@
   // Exiting State
   &.exiting {
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity $transition-slow;
 
     .logoContainer {
       transform: scale(1.1);
       opacity: 0;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all $transition-base;
     }
 
     .loadingProgress {
       opacity: 0;
       transform: translateY(-20px);
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all $transition-base;
     }
   }
 }
@@ -126,8 +126,8 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(211, 175, 94, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(211, 175, 94, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba($secondary, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($secondary, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
   opacity: 0.3;
 }
@@ -140,8 +140,8 @@
 
 .orb1, .orb2, .orb3 {
   position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(211, 175, 94, 0.15) 0%, transparent 70%);
+  border-radius: $radius-full;
+  background: radial-gradient(circle, rgba($secondary, 0.15) 0%, transparent 70%);
   filter: blur(20px);
 }
 
@@ -187,14 +187,14 @@
 
 // Logo Container
 .logoContainer {
-  margin-bottom: 3rem;
+  margin-bottom: $space-12;
   position: relative;
 }
 
 .logoWrapper {
   position: relative;
   display: inline-block;
-  padding: 3rem 4rem;
+  padding: $space-12 $space-16;
 }
 
 .mainLogo {
@@ -203,36 +203,36 @@
 }
 
 .logoText {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
+  font-family: $font-family-heading;
+  font-size: $text-5xl;
   font-weight: 700;
-  color: #ffffff;
+  color: $white;
   margin: 0;
   line-height: 1;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: $shadow-lg;
 
-  @media (max-width: 768px) {
-    font-size: 3.5rem;
+  @include mobile {
+    font-size: $text-4xl;
   }
 
   @media (max-width: 480px) {
-    font-size: 2.8rem;
+    font-size: $text-3xl;
   }
 }
 
 .logoSubtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-family: $font-family-primary;
+  font-size: $text-sm;
   font-weight: 600;
-  color: #D3AF5E;
+  color: $secondary;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-top: 1rem;
+  margin-top: $space-4;
   opacity: 0.9;
 
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
+  @include mobile {
+    font-size: $text-xs;
     letter-spacing: 0.2em;
   }
 }
@@ -250,7 +250,7 @@
 .borderTop, .borderBottom {
   position: absolute;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #D3AF5E, transparent);
+  background: linear-gradient(90deg, transparent, $secondary, transparent);
   left: 0;
 }
 
@@ -267,7 +267,7 @@
 .borderLeft, .borderRight {
   position: absolute;
   width: 2px;
-  background: linear-gradient(180deg, transparent, #D3AF5E, transparent);
+  background: linear-gradient(180deg, transparent, $secondary, transparent);
   top: 0;
 }
 
@@ -290,32 +290,32 @@
 .progressBar {
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 1px;
+  background: rgba($white, 0.2);
+  border-radius: $radius-sm;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-bottom: $space-6;
 }
 
 .progressFill {
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, #D3AF5E, #E8C872);
-  border-radius: 1px;
+  background: linear-gradient(90deg, $secondary, $accent);
+  border-radius: $radius-sm;
 }
 
 .loadingText {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-family: $font-family-primary;
+  font-size: $text-sm;
+  color: rgba($white, 0.7);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
 }
 
 // Additional responsive adjustments
-@media (max-width: 768px) {
+@include mobile {
   .logoWrapper {
-    padding: 2rem 2.5rem;
+    padding: $space-8 $space-10;
   }
 
   .loadingProgress {
@@ -323,17 +323,89 @@
   }
 }
 
-@media (max-width: 480px) {
+@include mobile {
   .logoWrapper {
-    padding: 1.5rem 2rem;
+    padding: $space-6 $space-8;
   }
 
   .logoText {
-    font-size: 2.5rem;
+    font-size: $text-3xl;
   }
 
   .logoSubtitle {
-    font-size: 0.7rem;
+    font-size: $text-xs;
     letter-spacing: 0.15em;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .preloadScreen {
+    &.entering,
+    &.animating,
+    &.exiting {
+      .logoContainer,
+      .loadingProgress,
+      .backgroundElements,
+      .progressFill,
+      .borderTop,
+      .borderRight,
+      .borderBottom,
+      .borderLeft {
+        transition: none;
+        animation: none;
+      }
+    }
+
+    .orb1,
+    .orb2,
+    .orb3 {
+      animation: none;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .preloadScreen {
+    background: $primary;
+  }
+
+  .gridLines {
+    background-image: 
+      linear-gradient(rgba($secondary, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($secondary, 0.3) 1px, transparent 1px);
+  }
+
+  .progressBar {
+    background: rgba($white, 0.4);
+  }
+
+  .loadingText {
+    color: rgba($white, 0.9);
+  }
+}
+
+// Landscape orientation adjustments
+@media (orientation: landscape) and (max-height: 600px) {
+  .logoContainer {
+    margin-bottom: $space-8;
+  }
+
+  .logoWrapper {
+    padding: $space-6 $space-8;
+  }
+
+  .logoText {
+    font-size: $text-3xl;
+  }
+
+  .logoSubtitle {
+    font-size: $text-xs;
+    margin-top: $space-2;
+  }
+
+  .loadingProgress {
+    max-width: 250px;
   }
 }
