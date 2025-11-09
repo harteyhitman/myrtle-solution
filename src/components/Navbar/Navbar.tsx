@@ -29,6 +29,7 @@ export default function Navbar() {
     { href: '/navbar/oursolutions', label: 'Our Solutions' },
     { href: '/navbar/ourpartners', label: 'Our Partners/Projects' },
     { href: '/navbar/contactus', label: 'Contact Us' },
+
   ];
 
 //   About Us
@@ -42,13 +43,9 @@ export default function Navbar() {
 
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className="container">
+      <div className='container'>
         <div className={styles.navContent}>
           <Link href="/" className={styles.logo} onClick={closeMobileMenu}>
-            {/* <div className={styles.logoContent}>
-              <span className={styles.logoText}>Myrtle</span>
-              <span className={styles.logoSubtitle}>SOLUTIONS</span>
-            </div> */}
           <Image src={Logo} alt="Myrtle Solutions Logo" className={styles.logoImg} />
           </Link>
 
@@ -70,7 +67,7 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className={styles.navCTA}>
-            <Link href="/get-started" className={styles.ctaButton}>
+            <Link href=" /navbar/consultation" className={styles.ctaButton}>
              Open Consultation
             </Link>
           </div>
