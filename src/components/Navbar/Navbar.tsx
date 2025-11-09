@@ -32,11 +32,6 @@ export default function Navbar() {
 
   ];
 
-//   About Us
-// Our Expertise
-// Our Solutions
-// Our Partners/Projects
-// Contact Us
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
@@ -46,7 +41,7 @@ export default function Navbar() {
       <div className='container'>
         <div className={styles.navContent}>
           <Link href="/" className={styles.logo} onClick={closeMobileMenu}>
-          <Image src={Logo} alt="Myrtle Solutions Logo" className={styles.logoImg} />
+          <Image src={Logo} alt="Myrtle Solutions" className={styles.logoImg} />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -102,7 +97,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/get-started"
+              href="/navbar/consultation"
               className={styles.mobileCTA}
               onClick={closeMobileMenu}
             >
