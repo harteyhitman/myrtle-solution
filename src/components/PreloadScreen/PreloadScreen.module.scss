@@ -1,0 +1,339 @@
+// src/components/PreloadScreen/PreloadScreen.module.scss
+
+.preloadScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #073020 0%, #0a3d29 50%, #073020 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+
+  // Entrance Animation
+  &.entering {
+    .logoContainer {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+
+    .loadingProgress {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .backgroundElements {
+      opacity: 0;
+    }
+  }
+
+  // Animating State
+  &.animating {
+    .logoContainer {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .loadingProgress {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+    }
+
+    .backgroundElements {
+      opacity: 1;
+      transition: opacity 1s ease-in-out 0.3s;
+    }
+
+    .progressFill {
+      width: 100%;
+      transition: width 2s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    // Animate border drawing
+    .borderTop {
+      width: 100%;
+      transition: width 1s ease-in-out 0.5s;
+    }
+
+    .borderRight {
+      height: 100%;
+      transition: height 1s ease-in-out 0.7s;
+    }
+
+    .borderBottom {
+      width: 100%;
+      transition: width 1s ease-in-out 0.9s;
+    }
+
+    .borderLeft {
+      height: 100%;
+      transition: height 1s ease-in-out 1.1s;
+    }
+
+    // Floating orbs animation
+    .orb1 {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb2 {
+      animation: float 8s ease-in-out infinite 1s;
+    }
+
+    .orb3 {
+      animation: float 7s ease-in-out infinite 2s;
+    }
+  }
+
+  // Exiting State
+  &.exiting {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+
+    .logoContainer {
+      transform: scale(1.1);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .loadingProgress {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+}
+
+// Background Elements
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gridLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(211, 175, 94, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(211, 175, 94, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.floatingOrbs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(211, 175, 94, 0.15) 0%, transparent 70%);
+  filter: blur(20px);
+}
+
+.orb1 {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 10%;
+}
+
+.orb2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 15%;
+}
+
+.orb3 {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  left: 20%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px);
+  }
+}
+
+// Main Content
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+// Logo Container
+.logoContainer {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.logoWrapper {
+  position: relative;
+  display: inline-block;
+  padding: 3rem 4rem;
+}
+
+.mainLogo {
+  position: relative;
+  z-index: 2;
+}
+
+.logoText {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.8rem;
+  }
+}
+
+.logoSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #D3AF5E;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+// Animated Border
+.logoBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.borderTop, .borderBottom {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D3AF5E, transparent);
+  left: 0;
+}
+
+.borderTop {
+  top: 0;
+  width: 0;
+}
+
+.borderBottom {
+  bottom: 0;
+  width: 0;
+}
+
+.borderLeft, .borderRight {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #D3AF5E, transparent);
+  top: 0;
+}
+
+.borderLeft {
+  left: 0;
+  height: 0;
+}
+
+.borderRight {
+  right: 0;
+  height: 0;
+}
+
+// Loading Progress
+.loadingProgress {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progressFill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #D3AF5E, #E8C872);
+  border-radius: 1px;
+}
+
+.loadingText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+// Additional responsive adjustments
+@media (max-width: 768px) {
+  .logoWrapper {
+    padding: 2rem 2.5rem;
+  }
+
+  .loadingProgress {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoWrapper {
+    padding: 1.5rem 2rem;
+  }
+
+  .logoText {
+    font-size: 2.5rem;
+  }
+
+  .logoSubtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}

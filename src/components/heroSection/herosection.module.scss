@@ -1,0 +1,454 @@
+
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  margin-top: 9rem;
+}
+
+// Slider Container - Levels Advisory Style
+.sliderContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+  
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+  }
+  
+  &.previous {
+    opacity: 1;
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sliderImage {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 48, 32, 0.4) 0%,
+    rgba(7, 48, 32, 0.2) 50%,
+    rgba(7, 48, 32, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+// Hero Content - Static position
+.heroContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  text-align: center;
+  padding: 5rem 5rem;
+    width: 1000px;
+   background: linear-gradient(
+    135deg,
+    rgba(7, 48, 32, 0.4) 0%,
+    rgba(13, 74, 45, 0.4) 50%,
+    rgba(7, 48, 32, 0.4) 100%
+  );
+  background-size: cover;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+//   backdrop-filter: blur(10px);
+  border: 1px solid rgba(211, 175, 94, 0.3);
+  box-shadow: 
+    0 20px 60px rgba(7, 48, 32, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  > * {
+    pointer-events: auto;
+  }
+    @media (max-width: 1024px) {
+    width: 700px;
+    height: 350px;
+    padding: 3rem 2rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
+    padding: 2.5rem 1.5rem;
+    margin-top: -30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    height: 280px;
+    padding: 2rem 1rem;
+    margin-top: -20px;
+    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  }
+}
+.contentWrapper::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(211, 175, 94, 0.3) 0%,
+    rgba(232, 200, 114, 0.2) 50%,
+    rgba(211, 175, 94, 0.4) 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4.1rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.3s forwards;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  padding: 0 7rem;
+  
+  @media (max-width: 1024px) {
+    font-size: 4rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
+}
+
+.highlight {
+  background: linear-gradient(135deg, #D3AF5E, #E8C872);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #D3AF5E, #E8C872);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineExpand 1.2s ease 1s forwards;
+  }
+}
+
+.subheadline {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.6s forwards;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  padding: 0 7rem;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
+// CTA Container
+.ctaContainer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.9s forwards;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ctaButton {
+  position: relative;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  
+  &.primary {
+    background: linear-gradient(135deg, #D3AF5E, #E8C872);
+    color: #073020;
+    box-shadow: 0 8px 30px rgba(211, 175, 94, 0.3);
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(211, 175, 94, 0.4);
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+  
+  &.secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// Slide Indicators - Levels Advisory Style
+.slideIndicators {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 4;
+  
+  @media (max-width: 768px) {
+    bottom: 2rem;
+  }
+}
+
+.indicator {
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &.active {
+    background: rgba(255, 255, 255, 0.6);
+    
+    .indicatorProgress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #D3AF5E;
+      animation: progress 5s linear forwards;
+    }
+  }
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Scroll Indicator - Levels Advisory Style
+.scrollIndicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+  @media (max-width: 768px) {
+    bottom: 0.5rem;
+  }
+}
+
+.scrollArrow {
+  width: 2px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 1px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: #D3AF5E;
+    border-radius: 1px;
+    animation: scrollBounce 2s infinite;
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineExpand {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scrollBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(-50%) translateY(8px);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0.8;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none;
+  }
+  
+  .headline,
+  .subheadline,
+  .ctaContainer {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .highlight::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+  
+  .scrollArrow::before {
+    animation: none;
+  }
+  
+  .indicatorProgress {
+    animation: none !important;
+    width: 100% !important;
+  }
+}
+
+// Additional responsive adjustments
+@media (max-height: 700px) {
+  .heroSection {
+    min-height: 600px;
+    height: 100vh;
+  }
+  
+  .contentWrapper {
+    margin-top: -30px;
+  }
+  
+  .headline {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .subheadline {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+}
