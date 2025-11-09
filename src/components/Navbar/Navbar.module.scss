@@ -1,41 +1,40 @@
-// src/components/Navbar/Navbar.module.scss
+@use '../../styles/variables' as *;
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgb(250 248 245);
+    background: $gray-100;
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(7, 48, 32, 0.1);
-    z-index: 1000;
-    padding: 1.2rem 0;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-bottom: 1px solid rgba($primary, 0.1);
+    z-index: $z-fixed;
+    padding: $space-5 0;
+    transition: all $transition-slow;
+
     &.scrolled {
-        padding: 0.8rem 0;
-        background: #0D4A2D;
-        box-shadow: 0 4px 20px rgba(7, 48, 32, 0.1);
-        border-bottom-color: rgba(211, 175, 94, 0.2);
+        padding: $space-3 0;
+        background: $tertiary;
+        box-shadow: $shadow-md;
+        border-bottom-color: rgba($secondary, 0.2);
 
-        // Change logo text color to white when scrolled
         .logoText {
-            color: #ffffff;
+            color: $white;
         }
 
-        // Change logo subtitle color to gold when scrolled
         .logoSubtitle {
-            color: #D3AF5E;
+            color: $secondary;
         }
 
-        // Change mobile menu button color to white when scrolled
         .mobileMenuButton span {
-            background: #ffffff;
+            background: $white;
         }
     }
 }
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -44,6 +43,7 @@
     margin: 0;
     flex: 1;
 }
+
 .navContent {
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@
 // Logo Styles
 .logo {
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform $transition-base;
 
     &:hover {
         transform: translateY(-1px);
@@ -69,39 +69,39 @@
 }
 
 .logoText {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-family: $font-family-heading;
+    font-size: $text-3xl;
     font-weight: 700;
-    color: #073020;
+    color: $primary;
     line-height: 1;
     letter-spacing: -0.02em;
-    transition: color 0.3s ease;
+    transition: color $transition-base;
 }
 
 .logoSubtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
+    font-family: $font-family-primary;
+    font-size: $text-xs;
     font-weight: 700;
-    color: #D3AF5E;
+    color: $secondary;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    margin-top: 0.25rem;
-    transition: color 0.3s ease;
+    margin-top: $space-1;
+    transition: color $transition-base;
 }
 
 .logoImg {
     width: 100px;
     height: 100px;
-    border-radius: 8px;
+    border-radius: $radius-lg;
 }
 
 // Desktop Navigation Links
 .navLinks {
     display: flex;
-    gap: 2.5rem;
+    gap: $space-10;
     align-items: center;
 
-    @media (max-width: 1024px) {
+    @include tablet {
         display: none;
     }
 }
@@ -109,17 +109,17 @@
 .navLink {
     position: relative;
     text-decoration: none;
-    color: #073020;
+    color: $primary;
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: 0.5rem 0;
-    transition: all 0.3s ease;
+    font-size: $text-sm;
+    padding: $space-2 0;
+    transition: all $transition-base;
     overflow: hidden;
 
     .linkText {
         position: relative;
         z-index: 2;
-        transition: color 0.3s ease;
+        transition: color $transition-base;
     }
 
     .linkHover {
@@ -128,14 +128,13 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, #D3AF5E, #E8C872);
-        transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-        border-radius: 1px;
+        background: linear-gradient(90deg, $secondary, $accent);
+        transition: width $transition-slow;
+        border-radius: $radius-sm;
     }
 
-    // Default state (not scrolled)
     &:hover {
-        color: #D3AF5E;
+        color: $secondary;
 
         .linkHover {
             width: 100%;
@@ -143,35 +142,34 @@
     }
 
     &.active {
-        color: #D3AF5E;
+        color: $secondary;
         font-weight: 600;
 
         .linkHover {
             width: 100%;
-            background: #D3AF5E;
+            background: $secondary;
         }
     }
 
-    // Scrolled state - navlinks turn white
     .navbar.scrolled & {
-        color: #ffffff;
+        color: $white;
 
         &:hover {
-            color: #D3AF5E;
+            color: $secondary;
 
             .linkHover {
                 width: 100%;
-                background: linear-gradient(90deg, #D3AF5E, #E8C872);
+                background: linear-gradient(90deg, $secondary, $accent);
             }
         }
 
         &.active {
-            color: #D3AF5E;
+            color: $secondary;
             font-weight: 600;
 
             .linkHover {
                 width: 100%;
-                background: #D3AF5E;
+                background: $secondary;
             }
         }
     }
@@ -179,20 +177,20 @@
 
 // CTA Button
 .navCTA {
-    @media (max-width: 1024px) {
+    @include tablet {
         display: none;
     }
 }
 
 .ctaButton {
-    background: linear-gradient(135deg, #073020, #0D4A2D);
-    color: white;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
+    background: linear-gradient(135deg, $primary, $tertiary);
+    color: $white;
+    padding: $space-3 $space-4;
+    border-radius: $radius-full;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: $text-sm;
+    transition: all $transition-base;
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
@@ -204,32 +202,35 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s ease;
+        background: linear-gradient(90deg, transparent, rgba($white, 0.2), transparent);
+        transition: left $transition-slow;
     }
 
-    // Default state
-    &:hover {
+    &:hover:not(:disabled) {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(7, 48, 32, 0.3);
+        box-shadow: 0 8px 25px rgba($primary, 0.3);
 
         &::before {
             left: 100%;
         }
     }
 
-    // Scrolled state - change to gold gradient
     .navbar.scrolled & {
-        background: linear-gradient(135deg, #D3AF5E, #E8C872);
-        color: #073020;
+        background: linear-gradient(135deg, $secondary, $accent);
+        color: $primary;
 
-        &:hover {
-            box-shadow: 0 8px 25px rgba(211, 175, 94, 0.4);
+        &:hover:not(:disabled) {
+            box-shadow: 0 8px 25px rgba($secondary, 0.4);
         }
     }
 
     &:active {
         transform: translateY(0);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $secondary;
+        outline-offset: 2px;
     }
 }
 
@@ -245,9 +246,9 @@
     cursor: pointer;
     padding: 0;
     position: relative;
-    z-index: 1001;
+    z-index: $z-fixed + 1;
 
-    @media (max-width: 1024px) {
+    @include tablet {
         display: flex;
     }
 
@@ -255,15 +256,14 @@
         display: block;
         height: 2px;
         width: 100%;
-        background: #073020;
-        border-radius: 1px;
-        transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+        background: $primary;
+        border-radius: $radius-sm;
+        transition: all $transition-base;
         transform-origin: center;
     }
 
-    // Scrolled state - change hamburger to white
     .navbar.scrolled & span {
-        background: #ffffff;
+        background: $white;
     }
 
     &.active {
@@ -280,10 +280,15 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        // Active state in scrolled navbar
         .navbar.scrolled & span {
-            background: #ffffff;
+            background: $white;
         }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $secondary;
+        outline-offset: 2px;
+        border-radius: $radius-sm;
     }
 }
 
@@ -293,14 +298,14 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba($white, 0.98);
     backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(7, 48, 32, 0.1);
-    box-shadow: 0 4px 20px rgba(7, 48, 32, 0.1);
+    border-top: 1px solid rgba($primary, 0.1);
+    box-shadow: $shadow-md;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all $transition-slow;
 
     &.active {
         opacity: 1;
@@ -308,32 +313,31 @@
         transform: translateY(0);
     }
 
-    // Scrolled state - mobile menu background
     .navbar.scrolled & {
-        background: rgba(13, 74, 45, 0.98);
-        border-top-color: rgba(211, 175, 94, 0.2);
+        background: rgba($tertiary, 0.98);
+        border-top-color: rgba($secondary, 0.2);
     }
 
-    @media (min-width: 1025px) {
+    @include desktop {
         display: none;
     }
 }
 
 .mobileMenuContent {
-    padding: 2rem 0;
+    padding: $space-8 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: $space-6;
 }
 
 .mobileNavLink {
     text-decoration: none;
-    color: #073020;
+    color: $primary;
     font-weight: 500;
-    font-size: 1.1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(7, 48, 32, 0.1);
-    transition: all 0.3s ease;
+    font-size: $text-lg;
+    padding: $space-3 0;
+    border-bottom: 1px solid rgba($primary, 0.1);
+    transition: all $transition-base;
     position: relative;
 
     &::before {
@@ -343,14 +347,13 @@
         bottom: -1px;
         width: 0;
         height: 2px;
-        background: #D3AF5E;
-        transition: width 0.3s ease;
+        background: $secondary;
+        transition: width $transition-base;
     }
 
-    // Default state
-    &:hover {
-        color: #D3AF5E;
-        padding-left: 1rem;
+    &:hover:not(:disabled) {
+        color: $secondary;
+        padding-left: $space-4;
 
         &::before {
             width: 30px;
@@ -358,81 +361,85 @@
     }
 
     &.active {
-        color: #D3AF5E;
+        color: $secondary;
         font-weight: 600;
 
         &::before {
             width: 50px;
-            background: #D3AF5E;
+            background: $secondary;
         }
     }
 
-    // Scrolled state - mobile navlinks turn white
     .navbar.scrolled & {
-        color: #ffffff;
-        border-bottom-color: rgba(255, 255, 255, 0.2);
+        color: $white;
+        border-bottom-color: rgba($white, 0.2);
 
-        &:hover {
-            color: #D3AF5E;
-            padding-left: 1rem;
+        &:hover:not(:disabled) {
+            color: $secondary;
+            padding-left: $space-4;
 
             &::before {
                 width: 30px;
-                background: #D3AF5E;
+                background: $secondary;
             }
         }
 
         &.active {
-            color: #D3AF5E;
+            color: $secondary;
             font-weight: 600;
 
             &::before {
                 width: 50px;
-                background: #D3AF5E;
+                background: $secondary;
             }
         }
+    }
+
+    &:focus-visible {
+        outline: 2px solid $secondary;
+        outline-offset: 2px;
+        border-radius: $radius-sm;
     }
 }
 
 .mobileCTA {
-    background: linear-gradient(135deg, #073020, #0D4A2D);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
+    background: linear-gradient(135deg, $primary, $tertiary);
+    color: $white;
+    padding: $space-4 $space-8;
+    border-radius: $radius-full;
     text-decoration: none;
     font-weight: 600;
     text-align: center;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
+    margin-top: $space-4;
+    transition: all $transition-base;
 
-    &:hover {
+    &:hover:not(:disabled) {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(7, 48, 32, 0.3);
+        box-shadow: 0 8px 25px rgba($primary, 0.3);
     }
 
-    // Scrolled state - mobile CTA changes to gold
     .navbar.scrolled & {
-        background: linear-gradient(135deg, #D3AF5E, #E8C872);
-        color: #073020;
+        background: linear-gradient(135deg, $secondary, $accent);
+        color: $primary;
 
-        &:hover {
-            box-shadow: 0 8px 25px rgba(211, 175, 94, 0.4);
+        &:hover:not(:disabled) {
+            box-shadow: 0 8px 25px rgba($secondary, 0.4);
         }
     }
-}
 
-// Scroll behavior enhancement
-html {
-    scroll-behavior: smooth;
+    &:focus-visible {
+        outline: 2px solid $secondary;
+        outline-offset: 2px;
+    }
 }
 
 // Focus styles for accessibility
 .navLink:focus-visible,
 .ctaButton:focus-visible,
 .mobileNavLink:focus-visible {
-    outline: 2px solid #D3AF5E;
+    outline: 2px solid $secondary;
     outline-offset: 2px;
-    border-radius: 2px;
+    border-radius: $radius-sm;
 }
 
 // Reduced motion support
@@ -448,5 +455,39 @@ html {
     .linkHover,
     .ctaButton::before {
         transition: none;
+    }
+}
+
+// Additional responsive adjustments
+@include mobile {
+    .navbar {
+        padding: $space-4 0;
+        
+        &.scrolled {
+            padding: $space-2 0;
+        }
+    }
+
+    .logoText {
+        font-size: $text-2xl;
+    }
+
+    .logoSubtitle {
+        font-size: $text-xs;
+    }
+
+    .mobileMenuContent {
+        padding: $space-6 0;
+        gap: $space-4;
+    }
+
+    .mobileNavLink {
+        font-size: $text-base;
+        padding: $space-2 0;
+    }
+
+    .mobileCTA {
+        padding: $space-3 $space-6;
+        margin-top: $space-3;
     }
 }

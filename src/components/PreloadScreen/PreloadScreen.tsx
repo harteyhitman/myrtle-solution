@@ -84,7 +84,7 @@ const PreloadScreen: React.FC<PreloadScreenProps> = ({
             <div className={styles.progressFill}></div>
           </div>
           <div className={styles.loadingText}>
-            Crafting Excellence
+           Deploying Technology Delivering Transformation.
           </div>
         </div>
       </div>
