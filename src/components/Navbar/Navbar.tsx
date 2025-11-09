@@ -71,7 +71,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className={styles.navCTA}>
             <Link href="/get-started" className={styles.ctaButton}>
-              Get Started
+             Open Consultation
             </Link>
           </div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
               className={styles.mobileCTA}
               onClick={closeMobileMenu}
             >
-              Get Started
+              Open Consultation
             </Link>
           </div>
         </div>
