@@ -10,13 +10,12 @@
   margin-top: 0;
   
   @include mobile {
-    min-height: 100vh;
+    // height: 60vh;
     margin-top: 0;
-    height: 100svh;
   }
   
   @media (max-width: 480px) {
-    height: 100vh;
+    height: 50vh;
   }
 }
 
