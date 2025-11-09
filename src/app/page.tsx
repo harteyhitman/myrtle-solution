@@ -31,7 +31,10 @@ export default function Home() {
       {isLoading && <PreloadScreen onLoadingComplete={handleLoadingComplete} />}
       
       <div className={`${styles.content} ${isLoading ? styles.loading : styles.loaded}`}>
-      <HomePage />
+        <div className={styles.homepage}>
+        <HomePage />   
+        </div>
+     
       </div>
     </main>
   );
