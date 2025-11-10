@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Favicon from '../components/Favicon/Favicon';
 import '../styles/globals.scss';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -37,9 +35,7 @@ export default function RootLayout({
         <Favicon />
       </head>
       <body>
-              <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );
