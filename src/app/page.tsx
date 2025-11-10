@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar/Navbar';
 // import Footer from '../components/Footer/Footer';
 import styles from './page.module.scss';
 import HomePage from '../homepage/homepage';
+import Footer from '../components/Footer/Footer';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,15 +28,18 @@ export default function Home() {
   }, [isLoading]);
 
   return (
-    <main className={styles.main}>
-      {isLoading && <PreloadScreen onLoadingComplete={handleLoadingComplete} />}
-      
-      <div className={`${styles.content} ${isLoading ? styles.loading : styles.loaded}`}>
-        <div className={styles.homepage}>
-        <HomePage />   
+    <>
+      <main className={styles.main}>
+        {isLoading && <PreloadScreen onLoadingComplete={handleLoadingComplete} />}
+        <div className={`${styles.content} ${isLoading ? styles.loading : styles.loaded}`}>
+          <div className={styles.homepage}>
+            <Navbar />
+            <HomePage />
+            <Footer />
+          </div>
         </div>
-     
-      </div>
-    </main>
+      </main>
+    </>
+
   );
 }
