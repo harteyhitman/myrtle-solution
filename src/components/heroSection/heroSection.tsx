@@ -86,9 +86,9 @@ export default function HeroSection() {
                                 alt={image.alt}
                                 fill
                                 className={styles.sliderImage}
-                                priority={index === 0}
-                                sizes="100vw"
-                                quality={90}
+                                priority
+                                // sizes="100vw"
+                                // quality={90}
                             />
                             {/* Gradient overlay like Levels Advisory */}
                             <div className={styles.imageOverlay}></div>
