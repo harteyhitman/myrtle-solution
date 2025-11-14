@@ -4,17 +4,17 @@
   min-height: 50vh;
 }
 
-.content {
-  transition: opacity 0.5s ease-in-out;
+// .content {
+//   transition: opacity 0.5s ease-in-out;
   
-  &.loading {
-    opacity: 0;
-  }
+//   &.loading {
+//     opacity: 0;
+//   }
   
-  &.loaded {
-    opacity: 1;
-  }
-}
+//   &.loaded {
+//     opacity: 1;
+//   }
+// }
 .hero{
     display: flex;
 }
