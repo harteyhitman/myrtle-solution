@@ -6,6 +6,7 @@ import Slider1 from '../../../public/heroimages/slider1.jpg';
 import Slider2 from '../../../public/heroimages/slider2.jpg';
 import Slider3 from '../../../public/heroimages/slider3.jpg';
 import Slider4 from '../../../public/heroimages/slider4.jpg';
+import Slider5 from '../../../public/heroimages/original-size.jpg';
 import Image from 'next/image';
 
 const heroImages = [
@@ -27,6 +28,11 @@ const heroImages = [
     {
         id: 4,
         src: Slider4,
+        alt: 'Successful project completion'
+    },
+    {
+        id: 5,
+        src: Slider5,
         alt: 'Successful project completion'
     }
 ];
@@ -86,9 +92,9 @@ export default function HeroSection() {
                                 alt={image.alt}
                                 fill
                                 className={styles.sliderImage}
-                                priority={index === 0}
-                                sizes="100vw"
-                                quality={90}
+                                priority
+                                // sizes="100vw"
+                                // quality={90}
                             />
                             {/* Gradient overlay like Levels Advisory */}
                             <div className={styles.imageOverlay}></div>
