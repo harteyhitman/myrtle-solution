@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -6,14 +8,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgb(250 248 245);
+    // background: rgb(250 248 245);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(7, 48, 32, 0.1);
+    // border-bottom: 1px solid rgba(7, 48, 32, 0.1);
     z-index: 1500;
     padding: 1.2rem 0;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    &.scrolled {
+    // &.scrolled {
         padding: 0.8rem 0;
         background: #0D4A2D;
         box-shadow: 0 4px 20px rgba(7, 48, 32, 0.1);
@@ -34,7 +36,7 @@
             background: #ffffff;
         }
     }
-}
+// }
 
 .container {
     display: flex;
@@ -161,7 +163,7 @@
     }
 
     // Scrolled state - navlinks turn white
-    .navbar.scrolled & {
+    // .navbar.scrolled & {
         color: #ffffff;
 
         &:hover {
@@ -183,7 +185,7 @@
             }
         }
     }
-}
+// }
 
 // CTA Button
 .navCTA {
@@ -193,8 +195,8 @@
 }
 
 .ctaButton {
-    background: linear-gradient(135deg, #073020, #0D4A2D);
-    color: white;
+        background: linear-gradient(135deg, #D3AF5E, #E8C872);
+    color: $primary;
     padding: 0.8rem 1.8rem;
     border-radius: 50px;
     text-decoration: none;
@@ -224,12 +226,12 @@
         &::before {
             left: 100%;
         }
-    }
+    // }
 
     // Scrolled state - change to gold gradient
-    .navbar.scrolled & {
-        background: linear-gradient(135deg, #D3AF5E, #E8C872);
-        color: #073020;
+    // .navbar.scrolled & {
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        color: $white;
 
         &:hover {
             box-shadow: 0 8px 25px rgba(211, 175, 94, 0.4);
@@ -248,7 +250,7 @@
     justify-content: space-between;
     width: 24px;
     height: 18px;
-    background: none;
+    background: $secondary;
     border: none;
     cursor: pointer;
     padding: 0;
