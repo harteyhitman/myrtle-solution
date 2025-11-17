@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import styles from './herosection.module.scss';
-import Slider1 from '../../../public/heroimages/newSlider1.jpg';
-import Slider2 from '../../../public/heroimages/newSlider2.jpeg';
+import Slider1 from '../../../public/heroimages/myslider1.jpg';
+import Slider2 from '../../../public/heroimages/myslider2.jpeg';
 import Slider3 from '../../../public/heroimages/newslider3.jpg';
-import Slider4 from '../../../public/heroimages/newSlider4.jpeg';
+import Slider4 from '../../../public/heroimages/myslider4.jpg';
 // import Slider5 from '../../../public/heroimages/original-size.jpg';
 import Image from 'next/image';
 

@@ -31,6 +31,7 @@
     }
   }
 
+  
   // Animating State
   &.animating {
     .logoContainer {
@@ -92,7 +93,7 @@
 
   // Exiting State
   &.exiting {
-    opacity: 0;
+    // opacity: 0;
     transition: opacity $transition-slow;
 
     .logoContainer {
