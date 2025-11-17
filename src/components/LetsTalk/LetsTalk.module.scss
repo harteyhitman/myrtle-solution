@@ -1,0 +1,160 @@
+// LetsTalk.module.scss
+@use '../../styles/variables' as *;
+
+.wrapper {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, $primary 0%, $tertiary 100%);
+  color: $white;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  @extend .container;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: $space-8;
+  
+  h2 {
+    font-size: $text-3xl;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: $space-6;
+    
+    @include tablet {
+      font-size: $text-4xl;
+    }
+  }
+  
+  p {
+    font-size: $text-lg;
+    line-height: 1.7;
+    opacity: 0.9;
+    color: $white;
+    margin-bottom: 0;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: $space-6;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: $space-8;
+}
+
+.button {
+  padding: $space-4 $space-8;
+//   border: 2px solid $primary;
+  border-radius: $radius-xl;
+  font-weight: 600;
+  font-size: $text-base;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &.primary {
+    background: $secondary;
+    color: $primary;
+    
+    &:hover {
+      background: transparent;
+      color: $white;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.secondary {
+    background: $white;
+    color: $primary;
+    
+    &:hover {
+      background: $white;
+      color: $primary;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Background elements
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($white, 0.1) 0%, transparent 70%);
+    border-radius: $radius-full;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($accent, 0.1) 0%, transparent 70%);
+    border-radius: $radius-full;
+  }
+}
+
+// Animations
+.fadeInUp {
+  animation: fadeInUp $transition-slow ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY($space-6);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@include mobile {
+    .container{
+            padding: 12px;
+    }
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    width: 70%;
+  }
+  
+  .header h2 {
+    font-size: $text-2xl;
+  }
+  
+  .header p {
+    font-size: $text-base;
+  }
+}

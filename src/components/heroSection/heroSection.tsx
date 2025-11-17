@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import styles from './herosection.module.scss';
-import Slider1 from '../../../public/heroimages/slider1.jpg';
-import Slider2 from '../../../public/heroimages/slider2.jpg';
-import Slider3 from '../../../public/heroimages/slider3.jpg';
-import Slider4 from '../../../public/heroimages/slider4.jpg';
-import Slider5 from '../../../public/heroimages/original-size.jpg';
+import Slider1 from '../../../public/heroimages/newSlider1.jpg';
+import Slider2 from '../../../public/heroimages/newSlider2.jpeg';
+import Slider3 from '../../../public/heroimages/newslider3.jpg';
+import Slider4 from '../../../public/heroimages/newSlider4.jpeg';
+// import Slider5 from '../../../public/heroimages/original-size.jpg';
 import Image from 'next/image';
 
 const heroImages = [
@@ -30,11 +30,11 @@ const heroImages = [
         src: Slider4,
         alt: 'Successful project completion'
     },
-    {
-        id: 5,
-        src: Slider5,
-        alt: 'Successful project completion'
-    }
+    // {
+    //     id: 5,
+    //     src: Slider5,
+    //     alt: 'Successful project completion'
+    // }
 ];
 
 export default function HeroSection() {
@@ -123,7 +123,7 @@ export default function HeroSection() {
                         {/* CTA Buttons */}
                         <div className={styles.ctaContainer}>
                             <button className={`${styles.ctaButton} ${styles.primary}`}>
-                                Discover Our Solutions
+                                Learn More
                             </button>
                             {/* <button className={`${styles.ctaButton} ${styles.secondary}`}>
                 View Our Work
