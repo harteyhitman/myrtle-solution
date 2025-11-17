@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react';
 import PreloadScreen from '../components/PreloadScreen/PreloadScreen';
 import Navbar from '../components/Navbar/Navbar';
-// import Footer from '../components/Footer/Footer';
 import styles from './page.module.scss';
 import HomePage from '../homepage/homepage';
 import Footer from '../components/Footer/Footer';
@@ -17,29 +16,36 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Simulate loading resources
+    // Fallback timer in case preloader doesn't complete
     const timer = setTimeout(() => {
-      if (isLoading) {
-        handleLoadingComplete();
-      }
-    }, 4500);
+      setIsLoading(false);
+    }, 5000); // Slightly longer than preloader duration
 
     return () => clearTimeout(timer);
-  }, [isLoading]);
+  }, []);
 
   return (
     <>
-      <main className={styles.main}>
-        {isLoading && <PreloadScreen onLoadingComplete={handleLoadingComplete} />}
-        <div className={`${styles.content} ${isLoading ? styles.loading : styles.loaded}`}>
-          <div className={styles.homepage}>
-            <Navbar />
-            <HomePage />
-            <Footer />
+      {/* Preloader at the root level - outside main content */}
+      {isLoading && (
+        <PreloadScreen 
+          onLoadingComplete={handleLoadingComplete} 
+          duration={4000}
+        />
+      )}
+      
+      {/* Main content - only show when not loading */}
+      {!isLoading && (
+        <main className={styles.main}>
+          <div className={styles.content}>
+            <div className={styles.homepage}>
+              <Navbar />
+              <HomePage />
+              <Footer />
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      )}
     </>
-
   );
 }

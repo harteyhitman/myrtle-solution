@@ -8,17 +8,17 @@ import OurImpacts from '../components/OurImpacts/OurImpacts'
 import LetsTalk from '../components/LetsTalk/LetsTalk'
 
 const HomePage = () => {
-  return (
-    <div>
-       <HeroSection />
-       <CeoNote />
-       <OurStory />
-       <CoreStrengths />
-         <SmartSolutions />
-      <OurImpacts />
-      <LetsTalk />
-    </div>
-  )
+    return (
+        <div>
+            <HeroSection />
+            <CeoNote />
+            <OurStory />
+            <CoreStrengths />
+            <SmartSolutions />
+            <OurImpacts />
+            <LetsTalk />
+        </div>
+    )
 }
 
 export default HomePage
