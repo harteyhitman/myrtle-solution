@@ -6,7 +6,9 @@ export default function OurStory() {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         
-        <div className={`${styles.icon} ${styles.fadeInUp}`}></div>
+        <div className={`${styles.icon} ${styles.fadeInUp}`}>
+          
+        </div>
 
         <h2 className={`${styles.title} ${styles.fadeInUp}`}>Our Story</h2>
 

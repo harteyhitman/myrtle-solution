@@ -6,35 +6,35 @@ import Slider1 from '../../../public/heroimages/myslider1.jpg';
 import Slider2 from '../../../public/heroimages/myslider3.jpg';
 import Slider3 from '../../../public/heroimages/newslider3.jpg';
 import Slider4 from '../../../public/heroimages/myslider4.jpg';
-// import Slider5 from '../../../public/heroimages/original-size.jpg';
+
 import Image from 'next/image';
 
 const heroImages = [
+
     {
         id: 1,
         src: Slider1,
         alt: 'Professional team collaboration'
     },
+
     {
         id: 2,
         src: Slider2,
         alt: 'Business meeting and strategy'
     },
+
     {
         id: 3,
         src: Slider3,
         alt: 'Innovative team discussion'
     },
+
     {
         id: 4,
         src: Slider4,
         alt: 'Successful project completion'
     },
-    // {
-    //     id: 5,
-    //     src: Slider5,
-    //     alt: 'Successful project completion'
-    // }
+
 ];
 
 export default function HeroSection() {
@@ -93,8 +93,8 @@ export default function HeroSection() {
                                 fill
                                 className={styles.sliderImage}
                                 priority
-                                // sizes="100vw"
-                                // quality={90}
+                            // sizes="100vw"
+                            // quality={90}
                             />
                             {/* Gradient overlay like Levels Advisory */}
                             <div className={styles.imageOverlay}></div>
@@ -102,7 +102,7 @@ export default function HeroSection() {
                     </div>
                 ))}
             </div>
-            .
+            
             {/* Static Hero Content */}
             <div className={styles.heroContent}>
                 <div className={styles.container}>
