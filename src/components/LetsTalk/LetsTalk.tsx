@@ -18,9 +18,9 @@ export default function LetsTalk() {
           </div>
 
           <div className={`${styles.ctaButtons} ${styles.fadeInUp}`}>
-            <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
+            {/* <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
               Schedule a Call
-            </Link>
+            </Link> */}
             <Link href="/contact" className={`${styles.button} ${styles.secondary}`}>
               Send Us a Message
             </Link>
