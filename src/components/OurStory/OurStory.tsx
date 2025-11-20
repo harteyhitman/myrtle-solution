@@ -1,4 +1,5 @@
 // OurStory.js
+import Link from "next/link";
 import styles from "./OurStory.module.scss";
 
 export default function OurStory() {
@@ -28,10 +29,12 @@ export default function OurStory() {
         </p>
 
       </div>
+              <Link href='/navbar/aboutus' className={styles.BtnContainer}>
+
             <button className={styles.button}>
             Discover More →
           </button>
-          
+          </Link>
     </section>
   );
 }

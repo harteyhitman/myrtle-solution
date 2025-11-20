@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./CoreStrengths.module.scss";
 import StrengthImg from "../../../public/core-strength-main-img.jpeg";
+import Link from "next/link";
 
 export default function CoreStrengths() {
   return (
@@ -35,11 +36,11 @@ export default function CoreStrengths() {
         </div>
          
       </div>
-      <div className={styles.BtnContainer}>
+      <Link href='navbar/ourexpertise' className={styles.BtnContainer}>
            <button className={styles.button}>
             Explore Our Expertise →
           </button>
-      </div>
+      </Link>
                 
     </section>
   );

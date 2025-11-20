@@ -21,7 +21,7 @@ export default function LetsTalk() {
             {/* <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
               Schedule a Call
             </Link> */}
-            <Link href="/contact" className={`${styles.button} ${styles.secondary}`}>
+            <Link href="/navbar/contactus" className={`${styles.button} ${styles.secondary}`}>
               Send Us a Message
             </Link>
           </div>

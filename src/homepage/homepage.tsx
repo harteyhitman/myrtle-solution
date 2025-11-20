@@ -6,6 +6,7 @@ import CoreStrengths from '../components/CoreStrengths/CoreStrengths'
 import SmartSolutions from '../components/SmartSolutions/SmartSolutions'
 import OurImpacts from '../components/OurImpacts/OurImpacts'
 import LetsTalk from '../components/LetsTalk/LetsTalk'
+import ContactCTA from '../components/callToAction/CallToAction'
 
 const HomePage = () => {
     return (
@@ -17,6 +18,7 @@ const HomePage = () => {
             <SmartSolutions />
             <OurImpacts />
             <LetsTalk />
+            <ContactCTA />
         </div>
     )
 }

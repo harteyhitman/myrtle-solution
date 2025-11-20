@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./OurImpacts.module.scss";
 import ImpactsImg from "../../../public/black-smart-solution.jpeg";
+import Link from "next/link";
 
 export default function OurImpacts() {
   return (
@@ -36,11 +37,11 @@ export default function OurImpacts() {
         </div>
 
       </div>
-            <div className={styles.BtnContainer}>
+      <Link href='/navbar/ourpartners' className={styles.BtnContainer}>
       <button className={styles.button}>
         View Our Case Studies →
       </button>
-      </div>
+      </Link>
     </section>
   );
 }
