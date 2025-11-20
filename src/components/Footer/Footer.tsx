@@ -9,11 +9,11 @@ import Logo from '../../../public/Screenshot_20251105-172751~2 (1).jpg'
 const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Our Expertise", href: "/expertise" },
-    { name: "Our Solutions", href: "/solutions" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact Us", href: "/contact" }
+    { name: "About Us", href: "/navbar/aboutus" },
+    { name: "Our Expertise", href: "/navbar/ourexpertise" },
+    { name: "Our Solutions", href: "/navbar/oursolutions" },
+    { name: "Projects", href: "navbar/ourpartners" },
+    { name: "Contact Us", href: "/navbar/contactus" }
   ];
 
   const companyLinks = [

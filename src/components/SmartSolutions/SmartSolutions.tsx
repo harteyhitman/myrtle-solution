@@ -1,4 +1,5 @@
 // SmartSolutions.js
+import Link from "next/link";
 import styles from "./SmartSolutions.module.scss";
 
 export default function SmartSolutions() {
@@ -49,11 +50,11 @@ export default function SmartSolutions() {
 
         <div className={styles.divider}></div>
       </div>
-        <div className={styles.BtnContainer}>
+      <Link href='/navbar/oursolutions' className={styles.BtnContainer}>
            <button className={styles.button}>
             Discover More →
           </button>
-      </div>
+      </Link>
     </section>
   );
 }
