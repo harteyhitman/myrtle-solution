@@ -27,22 +27,31 @@
 
 // Header Section
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: $space-16;
   padding: $space-8 0;
+  width: 60%;
+  max-width: 800px;
+
+  @include tablet {
+    width: 70%;
+  }
 
   @include mobile {
     margin-bottom: $space-12;
     padding: $space-6 0;
+    width: 100%;
   }
 }
 
 .title {
+  font-family: $font-family-heading;
   font-size: $text-4xl;
   font-weight: 700;
   margin-bottom: $space-6;
   color: $text-primary;
   line-height: 1.2;
+  letter-spacing: 0;
 
   @include tablet {
     font-size: $text-5xl;
@@ -59,11 +68,11 @@
 }
 
 .intro {
+  font-family: $font-family-primary;
   font-size: $text-lg;
   color: $text-secondary;
   line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
   font-weight: 400;
 
   @include mobile {
@@ -254,22 +263,61 @@
   font-size: $text-base;
   font-weight: 600;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: $shadow-sm;
+  font-family: $font-family-primary;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: darken(#4A90E2, 10%);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: $shadow-md;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   @include mobile {
     padding: $space-3 $space-5;
     font-size: $text-sm;
+  }
+}
+
+.successMessage {
+  padding: $space-4;
+  background: rgba($success, 0.1);
+  border: 1px solid $success;
+  border-radius: $radius-md;
+  color: $success;
+  font-size: $text-sm;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.errorMessage {
+  padding: $space-4;
+  background: rgba($danger, 0.1);
+  border: 1px solid $danger;
+  border-radius: $radius-md;
+  color: $danger;
+  font-size: $text-sm;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

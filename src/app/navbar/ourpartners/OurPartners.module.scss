@@ -27,22 +27,31 @@
 
 // Header Section
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: $space-16;
   padding: $space-8 0;
+  width: 60%;
+  max-width: 800px;
+
+  @include tablet {
+    width: 70%;
+  }
 
   @include mobile {
     margin-bottom: $space-12;
     padding: $space-6 0;
+    width: 100%;
   }
 }
 
 .title {
+  font-family: $font-family-heading;
   font-size: $text-4xl;
   font-weight: 700;
   margin-bottom: $space-6;
   color: $text-primary;
   line-height: 1.2;
+  letter-spacing: 0;
 
   @include tablet {
     font-size: $text-5xl;
@@ -59,11 +68,11 @@
 }
 
 .intro {
+  font-family: $font-family-primary;
   font-size: $text-lg;
   color: $text-secondary;
   line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
   font-weight: 400;
 
   @include mobile {
@@ -120,13 +129,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all $transition-base;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 180px;
   justify-content: center;
   border: 1px solid $border-color;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: $shadow-md;
   }
 
@@ -227,11 +236,11 @@
   box-shadow: $shadow-lg;
   display: flex;
   flex-direction: column;
-  transition: all $transition-base;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -248,10 +257,10 @@
 
 .projectImage {
   object-fit: cover;
-  transition: transform $transition-slow ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   .projectCard:hover & {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 }
 
@@ -301,13 +310,13 @@
   font-weight: 600;
   font-size: $text-base;
   text-decoration: none;
-  transition: all $transition-base;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   align-self: flex-start;
   box-shadow: $shadow-sm;
 
   &:hover {
     background: $tertiary;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: $shadow-md;
   }
 

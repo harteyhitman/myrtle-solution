@@ -4,16 +4,63 @@ import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./ContactUs.module.scss";
-import ContactImg from "../../../../public/heroimages/myslider2.jpeg";
+import ContactImg from "../../../../public/contact page.jpg";
 
 export default function Contact() {
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log({ subject, message });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Here you would typically send the data to your backend/API
+      // For now, we'll simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Form submitted:', formData);
+      
+      // Reset form on success
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      setSubmitStatus('success');
+      
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      
+      // Reset error message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -23,9 +70,9 @@ export default function Contact() {
         <div className={styles.container}>
           {/* Header Section */}
           <div className={styles.header}>
-            <h1 className={styles.title}>Contact Us</h1>
+            <h1 className={styles.title}>Contact Info</h1>
             <p className={styles.intro}>
-              We&apos;re here you help. Reach out through any any the following methods or fill to form below.
+            Get in Touch with Myrtle Solutions Canada to Explore Innovative Digital Transformation Strategies.
             </p>
           </div>
 
@@ -47,28 +94,30 @@ export default function Contact() {
             {/* Right Column - Get In Touch */}
             <div className={styles.formColumn}>
               <div className={styles.contactSection}>
-                <h2 className={styles.sectionTitle}>Get In Touch</h2>
+                <h2 className={styles.sectionTitle}>Contact Info</h2>
                 
                 {/* Contact Information */}
                 <div className={styles.contactInfo}>
                   <div className={styles.contactItem}>
                     <span className={styles.icon}>📍</span>
                     <span className={styles.contactText}>
-                      Address: 123 Technology Drive, Suite 456, Francisco, CA 90077
+                    Company Address: (241 Caribou way North
+Lethbridge,
+T1H 7E9)
                     </span>
                   </div>
                   
                   <div className={styles.contactItem}>
                     <span className={styles.icon}>✉️</span>
                     <span className={styles.contactText}>
-                      Email: <a href="mailto:info@innovatdtco.com" className={styles.emailLink}>info@innovatdtco.com</a>
+                      Email: <a href="mailto:info@innovatdtco.com" className={styles.emailLink}>Support@myrtlesolutions.org</a>
                     </span>
                   </div>
                   
                   <div className={styles.contactItem}>
                     <span className={styles.icon}>📞</span>
                     <span className={styles.contactText}>
-                      Phone: (0) 448 725 777767
+                      Phone: +1 403 615 7876
                     </span>
                   </div>
                 </div>
@@ -78,9 +127,34 @@ export default function Contact() {
                   <div className={styles.formGroup}>
                     <input
                       type="text"
+                      name="name"
+                      placeholder="Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={styles.input}
+                      required
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={styles.input}
+                      required
+                    />
+                  </div>
+                  
+                  <div className={styles.formGroup}>
+                    <input
+                      type="text"
+                      name="subject"
                       placeholder="Subject"
-                      value={subject}
-                      onChange={(e) => setSubject(e.target.value)}
+                      value={formData.subject}
+                      onChange={handleChange}
                       className={styles.input}
                       required
                     />
@@ -88,17 +162,34 @@ export default function Contact() {
                   
                   <div className={styles.formGroup}>
                     <textarea
-                      placeholder="Your Message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
+                      name="message"
+                      placeholder="Message"
+                      value={formData.message}
+                      onChange={handleChange}
                       className={styles.textarea}
                       rows={6}
                       required
                     />
                   </div>
+
+                  {submitStatus === 'success' && (
+                    <div className={styles.successMessage}>
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className={styles.errorMessage}>
+                      Something went wrong. Please try again.
+                    </div>
+                  )}
                   
-                  <button type="submit" className={styles.submitButton}>
-                    Send Message
+                  <button 
+                    type="submit" 
+                    className={styles.submitButton}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>
