@@ -1,7 +1,7 @@
 // OurImpacts.js
 import Image from "next/image";
 import styles from "./OurImpacts.module.scss";
-import ImpactsImg from "../../../public/black-smart-solution.jpeg";
+import ImpactsImg from "../../../public/ourImpacts.jpg";
 import Link from "next/link";
 
 export default function OurImpacts() {

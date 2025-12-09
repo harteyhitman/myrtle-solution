@@ -32,6 +32,8 @@
   padding: $space-8 0;
   width: 60%;
   max-width: 800px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.1s forwards;
 
   @include tablet {
     width: 70%;
@@ -101,6 +103,8 @@
 // Left Column - Image
 .imageColumn {
   width: 100%;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.3s forwards;
 }
 
 .imageWrapper {
@@ -128,6 +132,8 @@
 // Right Column - Form
 .formColumn {
   width: 100%;
+  opacity: 0;
+  animation: slideInRight 0.8s ease-out 0.4s forwards;
 }
 
 .contactSection {
@@ -147,6 +153,8 @@
   margin-bottom: $space-8;
   color: $text-primary;
   line-height: 1.3;
+  opacity: 0;
+  animation: fadeInDown 0.6s ease-out 0.6s forwards;
 
   @include mobile {
     font-size: $text-xl;
@@ -171,6 +179,19 @@
   display: flex;
   align-items: flex-start;
   gap: $space-4;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+
+  // Staggered animation delays
+  &:nth-child(1) {
+    animation-delay: 0.7s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.9s;
+  }
 }
 
 .icon {
@@ -217,6 +238,22 @@
 
 .formGroup {
   width: 100%;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+
+  // Staggered animation delays for form fields
+  &:nth-child(1) {
+    animation-delay: 1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 1.1s;
+  }
+  &:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+  &:nth-child(4) {
+    animation-delay: 1.3s;
+  }
 }
 
 .input,
@@ -266,6 +303,8 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: $shadow-sm;
   font-family: $font-family-primary;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 1.4s forwards;
 
   &:hover:not(:disabled) {
     background: darken(#4A90E2, 10%);
@@ -318,6 +357,51 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Welcome Animation Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

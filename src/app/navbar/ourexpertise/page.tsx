@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./OurExpertise.module.scss";
 import ConsultingImg from "../../../../public/ourexpertise page.jpg";
 import TrainingImg from "../../../../public/heroimages/newslider3.jpg";
+import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 
 export default function OurExpertise() {
   return (
@@ -12,20 +13,23 @@ export default function OurExpertise() {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           {/* Header Section */}
-          <div className={styles.header}>
-            <h1 className={styles.title}>Our Expertise</h1>
-            <p className={styles.intro}>
-              Our Expertise: Strategy Meets Execution Consulting: Strategic
-              guidance, landscape analysis, and technological roadmaps. Training
-              (Digital Skills): Intensive, hands-on programs to build capability
-              and workforce skills.
-            </p>
-          </div>
+          <ScrollAnimation animation="fadeInUp">
+            <div className={styles.header}>
+              <h1 className={styles.title}>Our Expertise</h1>
+              <p className={styles.intro}>
+                Our Expertise: Strategy Meets Execution Consulting: Strategic
+                guidance, landscape analysis, and technological roadmaps. Training
+                (Digital Skills): Intensive, hands-on programs to build capability
+                and workforce skills.
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Two Column Layout */}
           <div className={styles.columns}>
             {/* IT Consulting Column */}
-            <div className={`${styles.column} ${styles.consultingColumn}`}>
+            <ScrollAnimation animation="fadeInLeft" delay={100}>
+              <div className={`${styles.column} ${styles.consultingColumn}`}>
               <div className={styles.imageSection}>
                 <div className={styles.imageWrapper}>
                   <Image
@@ -52,10 +56,12 @@ export default function OurExpertise() {
                   Learn More →
                 </Link>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
 
             {/* IT Training Column */}
-            <div className={`${styles.column} ${styles.trainingColumn}`}>
+            <ScrollAnimation animation="fadeInRight" delay={200}>
+              <div className={`${styles.column} ${styles.trainingColumn}`}>
               <div className={styles.imageSection}>
                 <div className={styles.imageWrapper}>
                   <Image
@@ -83,7 +89,8 @@ export default function OurExpertise() {
                   View Courses →
                 </Link>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </div>

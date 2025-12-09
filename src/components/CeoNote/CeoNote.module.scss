@@ -36,6 +36,7 @@
   border-radius: $radius-2xl;
   overflow: hidden;
   box-shadow: $shadow-lg;
+  opacity: 0;
   
   &::before {
     content: '';
@@ -71,6 +72,7 @@
 
 .content {
   flex: 1;
+  opacity: 0;
 }
 
 .label {
@@ -83,6 +85,8 @@
   display: inline-block;
   border: 1px solid rgba($primary, 0.2);
   box-shadow: $shadow-sm;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
 }
 
 .title {
@@ -93,6 +97,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
 }
 
 .text {
@@ -102,6 +108,16 @@
   font-size: $text-lg;
   position: relative;
   padding-left: $space-6;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  
+  &:nth-of-type(1) {
+    animation-delay: 0.6s;
+  }
+  
+  &:nth-of-type(2) {
+    animation-delay: 0.7s;
+  }
   
   &::before {
     content: '';
@@ -162,17 +178,17 @@
 
 // Animations
 .fadeInLeft {
-  animation: fadeInLeft $transition-slow ease-out;
+  animation: fadeInLeft 0.8s ease-out 0.1s forwards;
 }
 
 .fadeInRight {
-  animation: fadeInRight $transition-slow ease-out;
+  animation: fadeInRight 0.8s ease-out 0.2s forwards;
 }
 
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-$space-12);
+    transform: translateX(-50px);
   }
   to {
     opacity: 1;
@@ -183,11 +199,22 @@
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX($space-12);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
