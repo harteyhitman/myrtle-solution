@@ -4,9 +4,10 @@ import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./OurSolutions.module.scss";
-import TechConsultingImg from "../../../../public/heroimages/myslider1.jpg";
-import AdvisoryImg from "../../../../public/heroimages/myslider3.jpg";
-import TrainingImg from "../../../../public/heroimages/newslider3.jpg";
+import TechConsultingImg from "../../../../public/ourSolution/solution1.jpg";
+import AdvisoryImg from "../../../../public/ourSolution/solution2.jpg";
+import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
+import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 
 export default function OurSolutions() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -80,20 +81,26 @@ export default function OurSolutions() {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           {/* Header Section */}
-          <div className={styles.header}>
-            <h1 className={styles.title}>Our Solutions</h1>
-            <p className={styles.intro}>
-              Who A team is cernsiislives tire empented With dote lies to dolilans faro vice Pota.
-            </p>
-          </div>
+          <ScrollAnimation animation="fadeInUp">
+            <div className={styles.header}>
+              <h1 className={styles.title}>Our Solutions</h1>
+              <p className={styles.intro}>
+                Who A team is cernsiislives tire empented With dote lies to dolilans faro vice Pota.
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Solutions Cards */}
           <div className={styles.cards}>
             {solutions.map((solution, index) => (
-              <div 
-                key={solution.id} 
-                className={`${styles.card} ${styles[`gradient${solution.gradient.charAt(0).toUpperCase() + solution.gradient.slice(1)}`]} ${expandedCard === solution.id ? styles.expanded : ''}`}
+              <ScrollAnimation 
+                key={solution.id}
+                animation="fadeInUp" 
+                delay={100 + (index * 100)}
               >
+                <div 
+                  className={`${styles.card} ${styles[`gradient${solution.gradient.charAt(0).toUpperCase() + solution.gradient.slice(1)}`]} ${expandedCard === solution.id ? styles.expanded : ''}`}
+                >
                 {expandedCard === solution.id ? (
                   // Expanded View
                   <div className={styles.expandedContent}>
@@ -139,7 +146,8 @@ export default function OurSolutions() {
                     </div>
                   </>
                 )}
-              </div>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

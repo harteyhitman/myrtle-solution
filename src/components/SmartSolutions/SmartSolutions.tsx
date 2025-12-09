@@ -1,6 +1,7 @@
 // SmartSolutions.js
 import Link from "next/link";
 import styles from "./SmartSolutions.module.scss";
+import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
 
 export default function SmartSolutions() {
   const features = [
@@ -22,39 +23,48 @@ export default function SmartSolutions() {
   ];
 
   return (
-    <section className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={`${styles.header} ${styles.fadeIn}`}>
-          <h1>Smart Solutions</h1>
-          <p>
-            We leverage cutting-edge technology and strategic expertise to deliver 
-            intelligent solutions that drive real business value. Our approach 
-            combines strategic thinking with innovative execution.
-          </p>
-        </div>
-
-        <div className={styles.features}>
-          {features.map((feature, index) => (
-            <div 
-              key={feature.title}
-              className={`${styles.feature} ${styles.staggerFadeIn}`}
-            >
-              <div className={styles.featureIcon}>
-                {feature.icon}
-              </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+    <ScrollAnimation animation="fadeInUp">
+      <section className={styles.wrapper}>
+        <div className={styles.container}>
+          <ScrollAnimation animation="fadeIn" delay={100}>
+            <div className={styles.header}>
+              <h1>Smart Solutions</h1>
+              <p>
+                We leverage cutting-edge technology and strategic expertise to deliver 
+                intelligent solutions that drive real business value. Our approach 
+                combines strategic thinking with innovative execution.
+              </p>
             </div>
-          ))}
-        </div>
+          </ScrollAnimation>
 
-        <div className={styles.divider}></div>
-      </div>
-      <Link href='/navbar/oursolutions' className={styles.BtnContainer}>
-           <button className={styles.button}>
-            Discover More →
-          </button>
-      </Link>
-    </section>
+          <div className={styles.features}>
+            {features.map((feature, index) => (
+              <ScrollAnimation 
+                key={feature.title}
+                animation="fadeInUp" 
+                delay={200 + (index * 100)}
+              >
+                <div className={styles.feature}>
+                  <div className={styles.featureIcon}>
+                    {feature.icon}
+                  </div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
+
+          <div className={styles.divider}></div>
+        </div>
+        <ScrollAnimation animation="fadeInUp" delay={500}>
+          <Link href='/navbar/oursolutions' className={styles.BtnContainer}>
+            <button className={styles.button}>
+              Discover More →
+            </button>
+          </Link>
+        </ScrollAnimation>
+      </section>
+    </ScrollAnimation>
   );
 }

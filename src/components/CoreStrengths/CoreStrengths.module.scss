@@ -148,7 +148,6 @@
 .image {
     object-fit: cover;
     transition: transform $transition-slow ease;
-
     &:hover {
         transform: scale(1.05);
     }

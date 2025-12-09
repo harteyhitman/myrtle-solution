@@ -1,7 +1,7 @@
 // CoreStrengths.js
 import Image from "next/image";
 import styles from "./CoreStrengths.module.scss";
-import StrengthImg from "../../../public/core-strength-main-img.jpeg";
+import StrengthImg from "../../../public/coreStrengthUpdatedimg.jpg";
 import Link from "next/link";
 
 export default function CoreStrengths() {
