@@ -363,8 +363,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+ flex-direction: column;
   gap: $space-4;
 
   @include tablet {

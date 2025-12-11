@@ -52,9 +52,9 @@ export default function OurExpertise() {
                   Unlock your business full potential with tailored strategies,
                   and Srasgie. Our expent consulants drive and growth.
                 </p>
-                <Link href="/navbar/consultation" className={styles.ctaButton}>
-                  Learn More →
-                </Link>
+                {/* <Link href="/navbar/consultation" className={styles.ctaButton}>
+                
+                </Link> */}
               </div>
               </div>
             </ScrollAnimation>
@@ -86,7 +86,7 @@ export default function OurExpertise() {
                   with technology.
                 </p>
                 <Link href="/navbar/oursolutions" className={styles.ctaButton}>
-                  View Courses →
+                Learn More →
                 </Link>
               </div>
               </div>

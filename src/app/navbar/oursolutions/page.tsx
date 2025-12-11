@@ -85,7 +85,7 @@ export default function OurSolutions() {
             <div className={styles.header}>
               <h1 className={styles.title}>Our Solutions</h1>
               <p className={styles.intro}>
-                Who A team is cernsiislives tire empented With dote lies to dolilans faro vice Pota.
+              We leverage cutting-edge technology and strategic expertise to deliver intelligent solutions that drive real business value. Our approach combines strategic thinking with innovative execution.
               </p>
             </div>
           </ScrollAnimation>
