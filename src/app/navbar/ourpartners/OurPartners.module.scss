@@ -97,6 +97,8 @@
   margin-bottom: $space-10;
   color: $text-primary;
   text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   opacity: 0;
   animation: fadeInDown 0.6s ease-out forwards;
 
@@ -105,7 +107,7 @@
   }
   
   &:nth-of-type(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
   }
 
   @include mobile {
@@ -118,119 +120,103 @@
 .partnersGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: $space-6;
-  margin-bottom: $space-8;
+  gap: $space-8;
+  margin-bottom: $space-12;
 
   @include tablet {
-    grid-template-columns: repeat(3, 1fr);
-    gap: $space-5;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-6;
   }
 
   @include mobile {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $space-4;
+    grid-template-columns: 1fr;
+    gap: $space-6;
   }
 }
 
 .partnerCard {
-  background: $bg-primary;
-  border-radius: $radius-lg;
-  padding: $space-8 $space-6;
-  box-shadow: $shadow-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 180px;
-  justify-content: center;
-  border: 1px solid $border-color;
+  width: 100%;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
 
   // Staggered animation delays
-  @for $i from 1 through 8 {
+  @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.08 + 0.3}s;
+      animation-delay: #{$i * 0.1 + 0.3}s;
     }
   }
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: $shadow-md;
-  }
-
-  @include mobile {
-    padding: $space-6 $space-4;
-    min-height: 150px;
-  }
 }
 
-.partnerIcon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $white;
-  font-weight: 700;
-  font-size: $text-xl;
+.partnerImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 100%;
   margin-bottom: $space-4;
-  box-shadow: $shadow-sm;
-
-  @include mobile {
-    width: 50px;
-    height: 50px;
-    font-size: $text-lg;
-  }
+  border: 2px solid $black;
+  overflow: hidden;
+  background: $gray-100;
 }
 
-.shapeCircle {
-  border-radius: $radius-full;
-}
-
-.shapeHexagon {
-  border-radius: $radius-lg;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-}
-
-.shapeSquare {
-  border-radius: $radius-md;
-}
-
-.iconBlue {
-  background: linear-gradient(135deg, #4A90E2 0%, #7B68EE 100%);
-}
-
-.iconGreen {
-  background: linear-gradient(135deg, #50C878 0%, #4A90E2 100%);
-}
-
-.iconRed {
-  background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+.partnerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .partnerInfo {
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .partnerName {
-  font-size: $text-base;
-  font-weight: 600;
+  font-size: $text-lg;
+  font-weight: 700;
   color: $text-primary;
-  margin-bottom: $space-1;
+  margin-bottom: $space-2;
   line-height: 1.3;
+
+  @include desktop {
+    font-size: $text-xl;
+  }
+
+  @include mobile {
+    font-size: $text-base;
+  }
+}
+
+.partnerTitle {
+  font-size: $text-base;
+  color: $text-secondary;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+
+  @include desktop {
+    font-size: $text-lg;
+  }
 
   @include mobile {
     font-size: $text-sm;
   }
 }
 
-.partnerSubtitle {
-  font-size: $text-xs;
-  color: $text-secondary;
-  margin: 0;
-  line-height: 1.4;
+// Divider
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $border-color;
+  margin: $space-16 0;
+  opacity: 0;
+  animation: fadeInDown 0.6s ease-out 0.6s forwards;
 }
 
 // Projects Grid
@@ -251,107 +237,83 @@
 }
 
 .projectCard {
-  background: $bg-primary;
-  border-radius: $radius-xl;
-  overflow: hidden;
-  box-shadow: $shadow-lg;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
 
   // Staggered animation delays
   @for $i from 1 through 3 {
     &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.15 + 0.5}s;
+      animation-delay: #{$i * 0.15 + 0.7}s;
     }
   }
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  }
 }
 
-.projectImageWrapper {
+.projectLogoWrapper {
   position: relative;
   width: 100%;
-  height: 250px;
-  overflow: hidden;
-
-  @include mobile {
-    height: 200px;
-  }
-}
-
-.projectImage {
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-  .projectCard:hover & {
-    transform: scale(1.02);
-  }
-}
-
-.projectContent {
-  padding: $space-8 $space-6;
+  min-height: 150px;
+  border: 2px solid $black;
   display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  @include desktop {
-    padding: $space-10 $space-8;
-  }
-}
-
-.projectTitle {
-  font-size: $text-xl;
-  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
   margin-bottom: $space-4;
-  color: $text-primary;
-  line-height: 1.3;
+  background: $bg-primary;
 
   @include mobile {
-    font-size: $text-lg;
+    min-height: 120px;
+    padding: $space-4;
   }
 }
 
-.projectDescription {
+.projectLogo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 100px;
+
+  @include mobile {
+    max-height: 80px;
+  }
+}
+
+.projectDescriptionIndicator {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-bottom: $space-4;
+  font-weight: 700;
+  color: $text-primary;
+}
+
+.arrow {
+  font-size: $text-lg;
+  line-height: 1;
+}
+
+.indicatorText {
   font-size: $text-base;
-  color: $text-secondary;
-  line-height: 1.7;
-  margin-bottom: $space-6;
-  flex: 1;
+  font-weight: 700;
 
   @include mobile {
     font-size: $text-sm;
   }
 }
 
-.learnMoreBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: $space-3 $space-8;
-  background: $primary;
-  color: $white;
-  border-radius: $radius-lg;
-  font-weight: 600;
-  font-size: $text-base;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  align-self: flex-start;
-  box-shadow: $shadow-sm;
+.projectContent {
+  width: 100%;
+}
 
-  &:hover {
-    background: $tertiary;
-    transform: translateY(-1px);
-    box-shadow: $shadow-md;
-  }
+.projectDescription {
+  font-size: $text-base;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
 
   @include mobile {
-    padding: $space-2 $space-6;
     font-size: $text-sm;
   }
 }

@@ -1,0 +1,135 @@
+@use '../../styles/variables' as *;
+
+.wrapper {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, $bg-secondary 0%, $gray-200 100%);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $space-6;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.title {
+  font-size: $text-4xl;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $space-4;
+}
+
+.subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: $text-base;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+/* =============================
+   Carousel
+============================= */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  padding: $space-6 0;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.track {
+  display: flex;
+  gap: $space-6;
+  width: max-content;
+  animation: scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.paused .track {
+  animation-play-state: paused;
+}
+
+/* =============================
+   Cards
+============================= */
+
+.card {
+  flex: 0 0 260px;
+  background: $white;
+  border: 1px solid $gray-300;
+  border-radius: 6px;
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  @include tablet {
+    flex: 0 0 240px;
+  }
+
+  @include mobile {
+    flex: 0 0 100%;
+  }
+}
+
+.logoWrapper {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-size: $text-base;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+  text-align: center;
+}
+
+.description {
+  font-size: $text-sm;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin: 0;
+  text-align: center;
+}
+
+/* =============================
+   Animation
+============================= */
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
