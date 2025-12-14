@@ -45,8 +45,9 @@ export default function OurPartners() {
           <div className={styles.header}>
             <h1 className={styles.title}>Our Partners & Projects</h1>
             <p className={styles.intro}>
-              Who A team is cernsielives tire empented With dote lies to dollans faro vice Pota.
-            </p>
+            Proven success with trusted partnerships built on experience, seamless collaboration,
+             measurable growth, and impactful project outcomes that drive efficiency, performance,
+              and long-term success. </p>
           </div>
 
           {/* Strategic Partners Section */}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./ContactUs.module.scss";
 import ContactImg from "../../../../public/contact page.jpg";
+import Button from "@/src/components/Button/Button";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -184,13 +185,15 @@ T1H 7E9)
                     </div>
                   )}
                   
-                  <button 
+                  <Button 
                     type="submit" 
-                    className={styles.submitButton}
+                    variant="primary"
+                    size="md"
+                    fullWidth
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
+                  </Button>
                 </form>
               </div>
             </div>

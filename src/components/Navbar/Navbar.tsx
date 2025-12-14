@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.scss';
 import Image from 'next/image';
 import Logo from '@/public/Screenshot_20251105-172751~2 (1).jpg';
+import Button from '../Button/Button';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,8 +29,6 @@ export default function Navbar() {
     { href: '/navbar/ourexpertise', label: 'Our Expertise' },
     { href: '/navbar/oursolutions', label: 'Our Solutions' },
     { href: '/navbar/ourpartners', label: 'Our Partners/Projects' },
-    { href: '/navbar/contactus', label: 'Contact Us' },
-
   ];
 
   const closeMobileMenu = () => {
@@ -62,9 +61,9 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className={styles.navCTA}>
-            <Link href=" /navbar/consultation" className={styles.ctaButton}>
-             Open Consultation
-            </Link>
+            <Button href="/navbar/contactus" variant="gold" size="md" as="link">
+              Contact Us
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,13 +95,15 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/navbar/consultation"
-              className={styles.mobileCTA}
+            <Button
+              href="/navbar/contactus"
+              variant="gold"
+              size="md"
+              as="link"
               onClick={closeMobileMenu}
             >
-              Open Consultation
-            </Link>
+              Contact Us
+            </Button>
           </div>
         </div>
       </div>

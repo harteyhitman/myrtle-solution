@@ -1,7 +1,7 @@
 // CeoNote.js
 import Image from "next/image";
 import styles from "./CeoNote.module.scss";
-import CeoImg from "../../../public/ceo's-img.jpg";
+import CeoImg from "../../../public/updatedCEO.jpg";
 
 export default function CeoNote() {
   return (
@@ -28,9 +28,7 @@ export default function CeoNote() {
          We’re committed to shaping technology that supports real human needs, fosters responsible innovation, and delivers meaningful value wherever our impact is felt.
           </p>
 
-    
         </div>
-
       </div>
     </section>
   );

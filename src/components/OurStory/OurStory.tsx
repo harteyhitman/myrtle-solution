@@ -1,12 +1,12 @@
 // OurStory.js
-import Link from "next/link";
 import styles from "./OurStory.module.scss";
 import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
+import Button from "../Button/Button";
 
 export default function OurStory() {
   return (
     <ScrollAnimation animation="fadeInUp">
-      <section className={styles.wrapper}>
+      <section id="our-story" className={styles.wrapper}>
         <div className={styles.container}>
           
           <ScrollAnimation animation="fadeInUp" delay={100}>
@@ -40,11 +40,11 @@ export default function OurStory() {
 
         </div>
         <ScrollAnimation animation="fadeInUp" delay={500}>
-          <Link href='/navbar/aboutus' className={styles.BtnContainer}>
-            <button className={styles.button}>
+          <div className={styles.BtnContainer}>
+            <Button href="/navbar/aboutus" variant="primary" size="md" as="link">
               Discover More →
-            </button>
-          </Link>
+            </Button>
+          </div>
         </ScrollAnimation>
       </section>
     </ScrollAnimation>

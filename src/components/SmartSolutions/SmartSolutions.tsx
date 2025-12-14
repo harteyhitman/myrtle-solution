@@ -1,7 +1,7 @@
 // SmartSolutions.js
-import Link from "next/link";
 import styles from "./SmartSolutions.module.scss";
 import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
+import Button from "../Button/Button";
 
 export default function SmartSolutions() {
   const features = [
@@ -58,11 +58,11 @@ export default function SmartSolutions() {
           <div className={styles.divider}></div>
         </div>
         <ScrollAnimation animation="fadeInUp" delay={500}>
-          <Link href='/navbar/oursolutions' className={styles.BtnContainer}>
-            <button className={styles.button}>
+          <div className={styles.BtnContainer}>
+            <Button href="/navbar/oursolutions" variant="primary" size="md" as="link">
               Discover More →
-            </button>
-          </Link>
+            </Button>
+          </div>
         </ScrollAnimation>
       </section>
     </ScrollAnimation>

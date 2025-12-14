@@ -8,6 +8,7 @@ import TechConsultingImg from "../../../../public/ourSolution/solution1.jpg";
 import AdvisoryImg from "../../../../public/ourSolution/solution2.jpg";
 import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
+import Button from "@/src/components/Button/Button";
 
 export default function OurSolutions() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -137,12 +138,13 @@ export default function OurSolutions() {
                     <div className={styles.content}>
                       <h2 className={styles.cardTitle}>{solution.title}</h2>
                       <p className={styles.cardDescription}>{solution.description}</p>
-                      <button 
+                      <Button 
                         onClick={() => handleExpand(solution.id)}
-                        className={`${styles.learnMore} ${styles[`button${solution.buttonColor.charAt(0).toUpperCase() + solution.buttonColor.slice(1)}`]}`}
+                        variant={solution.buttonColor as 'blue' | 'green' | 'yellow'}
+                        size="md"
                       >
                         Learn More
-                      </button>
+                      </Button>
                     </div>
                   </>
                 )}
