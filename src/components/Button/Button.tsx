@@ -1,7 +1,7 @@
 // Button.tsx
 'use client';
 
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode, MouseEventHandler } from 'react';
 import Link from 'next/link';
 import styles from './Button.module.scss';
 
@@ -46,7 +46,12 @@ export default function Button({
     // Extract onClick and other event handlers that should be on the Link
     const { onClick, ...linkProps } = props;
     return (
-      <Link href={href} className={baseClasses} onClick={onClick} {...linkProps}>
+      <Link 
+        href={href} 
+        className={baseClasses} 
+        onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
+        {...(linkProps as any)}
+      >
         {children}
       </Link>
     );
