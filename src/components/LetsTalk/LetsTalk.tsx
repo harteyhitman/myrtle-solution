@@ -1,7 +1,7 @@
 // LetsTalk.js
-import Link from "next/link";
 import styles from "./LetsTalk.module.scss";
 import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
+import Button from "../Button/Button";
 
 export default function LetsTalk() {
   return (
@@ -23,12 +23,9 @@ export default function LetsTalk() {
 
             <ScrollAnimation animation="fadeInUp" delay={200}>
               <div className={styles.ctaButtons}>
-                {/* <Link href="/contact" className={`${styles.button} ${styles.primary}`}>
-                  Schedule a Call
-                </Link> */}
-                <Link href="/navbar/contactus" className={`${styles.button} ${styles.secondary}`}>
+                <Button href="/navbar/contactus" variant="white" size="md" as="link">
                   Send Us a Message
-                </Link>
+                </Button>
               </div>
             </ScrollAnimation>
           </div>

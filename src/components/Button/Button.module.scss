@@ -1,0 +1,230 @@
+// Button.module.scss
+@use '../../styles/variables' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $radius-full;
+  font-family: $font-family-primary;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  
+  &:focus-visible {
+    outline: 2px solid $secondary;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Size variants
+  &.sm {
+    padding: $space-2 $space-5;
+    font-size: $text-sm;
+    min-width: 100px;
+  }
+
+  &.md {
+    padding: $space-4 $space-8;
+    font-size: $text-base;
+    min-width: 140px;
+  }
+
+  &.lg {
+    padding: $space-5 $space-10;
+    font-size: $text-lg;
+    min-width: 160px;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  // Hover effect overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  &:hover:not(:disabled)::before {
+    left: 100%;
+  }
+
+  // Variant: Primary (Dark Green)
+  &.primary {
+    background: linear-gradient(135deg, $primary 0%, $tertiary 100%);
+    color: $white;
+    box-shadow: 0 4px 15px rgba($primary, 0.3);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($primary, 0.4);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  // Variant: Secondary (Transparent/Outline)
+  &.secondary {
+    background: transparent;
+    color: $white;
+    border: 2px solid rgba($white, 0.8);
+    backdrop-filter: blur(10px);
+
+    &:hover:not(:disabled) {
+      background: rgba($white, 0.1);
+      border-color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($white, 0.2);
+    }
+  }
+
+  // Variant: Gold (Gradient)
+  &.gold {
+    background: linear-gradient(135deg, #D3AF5E 0%, #E8C872 100%);
+    color: $primary;
+    box-shadow: 
+      0 8px 30px rgba(211, 175, 94, 0.3),
+      0 2px 10px rgba(211, 175, 94, 0.2);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 15px 40px rgba(211, 175, 94, 0.5),
+        0 8px 25px rgba(211, 175, 94, 0.4);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(-1px) scale(1.01);
+    }
+  }
+
+  // Variant: Blue
+  &.blue {
+    background: $white;
+    color: #6B8FA8;
+    border: 2px solid #6B8FA8;
+
+    &:hover:not(:disabled) {
+      background: #6B8FA8;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(107, 143, 168, 0.4);
+    }
+  }
+
+  // Variant: Green
+  &.green {
+    background: $white;
+    color: #7A9A8A;
+    border: 2px solid #7A9A8A;
+
+    &:hover:not(:disabled) {
+      background: #7A9A8A;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(122, 154, 138, 0.4);
+    }
+  }
+
+  // Variant: Yellow
+  &.yellow {
+    background: $white;
+    color: #A89A7A;
+    border: 2px solid #A89A7A;
+
+    &:hover:not(:disabled) {
+      background: #A89A7A;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(168, 154, 122, 0.4);
+    }
+  }
+
+  // Variant: White
+  &.white {
+    background: $white;
+    color: $primary;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  // Variant: Outline
+  &.outline {
+    background: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:hover:not(:disabled) {
+      background: $primary;
+      color: $white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba($primary, 0.3);
+    }
+  }
+
+  // Responsive adjustments
+  @include tablet {
+    &.md {
+      padding: $space-3 $space-6;
+      font-size: $text-sm;
+      min-width: 120px;
+    }
+
+    &.lg {
+      padding: $space-4 $space-8;
+      font-size: $text-base;
+      min-width: 140px;
+    }
+  }
+
+  @include mobile {
+    &.sm {
+      padding: $space-2 $space-4;
+      font-size: $text-xs;
+      min-width: 90px;
+    }
+
+    &.md {
+      padding: $space-3 $space-6;
+      font-size: $text-sm;
+      min-width: 110px;
+    }
+
+    &.lg {
+      padding: $space-3 $space-6;
+      font-size: $text-sm;
+      min-width: 120px;
+    }
+  }
+
+  // Remove hover effects on touch devices
+  @media (hover: none) {
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+  }
+}

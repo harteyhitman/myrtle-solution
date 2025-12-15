@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./ContactUs.module.scss";
 import ContactImg from "../../../../public/contact page.jpg";
+import Button from "@/src/components/Button/Button";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -30,11 +31,27 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Here you would typically send the data to your backend/API
-      // For now, we'll simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Form submitted:', formData);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Non-JSON response:', text);
+        throw new Error('Server returned an invalid response. Please check your environment variables.');
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
       
       // Reset form on success
       setFormData({
@@ -46,18 +63,18 @@ export default function Contact() {
       
       setSubmitStatus('success');
       
-      // Reset success message after 3 seconds
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
-      }, 3000);
+      }, 5000);
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
       
-      // Reset error message after 3 seconds
+      // Reset error message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
-      }, 3000);
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -184,13 +201,15 @@ T1H 7E9)
                     </div>
                   )}
                   
-                  <button 
+                  <Button 
                     type="submit" 
-                    className={styles.submitButton}
+                    variant="primary"
+                    size="md"
+                    fullWidth
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
+                  </Button>
                 </form>
               </div>
             </div>

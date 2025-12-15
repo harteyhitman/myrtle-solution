@@ -6,6 +6,7 @@ import Slider1 from '../../../public/updatedHeroImages/slider1.jpg';
 import Slider2 from '../../../public/updatedHeroImages/slider2.jpg';
 import Slider3 from '../../../public/updatedHeroImages/slider3.jpg';
 import Slider4 from '../../../public/updatedHeroImages/slider4.jpg';
+import Button from '../Button/Button';
 
 import Image from 'next/image';
 
@@ -122,9 +123,18 @@ export default function HeroSection() {
 
                         {/* CTA Buttons */}
                         <div className={styles.ctaContainer}>
-                            <button className={`${styles.ctaButton} ${styles.primary}`}>
+                            <Button 
+                                variant="gold"
+                                size="lg"
+                                onClick={() => {
+                                    const ourStorySection = document.getElementById('our-story');
+                                    if (ourStorySection) {
+                                        ourStorySection.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                            >
                                 Learn More
-                            </button>
+                            </Button>
                             {/* <button className={`${styles.ctaButton} ${styles.secondary}`}>
                 View Our Work
               </button> */}

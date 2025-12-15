@@ -2,19 +2,28 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import styles from './CallToaction.module.scss';
 import ScrollAnimation from '../ScrollAnimation/ScrollAnimation';
+import Button from '../Button/Button';
 
 export default function ContactCTA() {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleContactClick = () => {
-    // Smooth scroll to contact section or navigate
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    // Navigate to home page and scroll to top
+    if (pathname === '/') {
+      // Already on home page, just scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      window.location.href = '/navbar/contactus';
+      // Navigate to home page
+      router.push('/');
+      // Scroll to top after navigation
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     }
   };
 
@@ -53,16 +62,13 @@ export default function ContactCTA() {
             {/* CTA Button */}
             <ScrollAnimation animation="fadeInUp" delay={300}>
               <div className={styles.ctaContainer}>
-                <button 
-                  className={styles.ctaButton}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
+                <Button 
+                  variant="gold"
+                  size="lg"
                   onClick={handleContactClick}
                 >
-                  <span className={styles.buttonText}>Discover More</span>
-                  <div className={styles.buttonHoverEffect}></div>
-                  <div className={`${styles.buttonSparkle} ${isHovered ? styles.active : ''}`}></div>
-                </button>
+                  Discover More
+                </Button>
                 
                 {/* Secondary Info */}
                 <div className={styles.secondaryInfo}>
