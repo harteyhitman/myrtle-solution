@@ -2,7 +2,7 @@ import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
 import styles from "./OurPartners.module.scss";
 import IgechiWorly from "../../../../public/updatedCEO.jpg";
-import DarlingtonAngele from "../../../../public/partners/darlighton.png";
+import DarlingtonAnaele from "../../../../public/partners/darlighton.png";
 import ChidiUdeze from "../../../../public/partners/udeze.png";
 import TajiriIzoma from "../../../../public/partners/tajiri izoma.jpeg";
 
@@ -21,9 +21,9 @@ export default function OurPartners() {
     },
 
     {
-      name: "Darlington Angele",
+      name: "Darlington Anaele",
       title: "Advisory, Strategic programs",
-      image: DarlingtonAngele
+      image: DarlingtonAnaele
     },
     {
       name: "Chidi Udeze",
