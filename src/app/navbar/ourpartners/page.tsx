@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./OurPartners.module.scss";
 import IgechiWorly from "../../../../public/updatedCEO.jpg";
 import DarlingtonAngele from "../../../../public/partners/darlighton.png";
-import ChidiUdze from "../../../../public/partners/udeze.png";
+import ChidiUdeze from "../../../../public/partners/udeze.png";
 import TajiriIzoma from "../../../../public/partners/tajiri izoma.jpeg";
 
 import Aradel from "../../../../public/partners/logo+-+aradel.png";
@@ -26,9 +26,9 @@ export default function OurPartners() {
       image: DarlingtonAngele
     },
     {
-      name: "Chidi Udze",
+      name: "Chidi Udeze",
       title: "Lead, Technology & IT Infrastructure",
-      image: ChidiUdze
+      image: ChidiUdeze
     },
     {
       name: "Tajiri Izoma",
