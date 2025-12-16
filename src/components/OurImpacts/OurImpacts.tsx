@@ -16,7 +16,7 @@ export default function OurImpacts() {
           
           <div className={styles.impacts}>
             <div>
-              <strong>500+ Projects Delivered</strong>
+              <strong>5+ Projects Delivered</strong>
               <span>Successfully completed across multiple industries and initiatives, driving measurable business outcomes.</span>
             </div>
 

@@ -8,8 +8,14 @@ export default function CeoNote() {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         
-        <div className={`${styles.imageWrapper} ${styles.fadeInLeft}`}>
-          <Image src={CeoImg} alt="CEO Photo" fill className={styles.image} />
+        <div className={styles.imageSection}>
+          <div className={`${styles.imageWrapper} ${styles.fadeInLeft}`}>
+            <Image src={CeoImg} alt="CEO Photo" fill className={styles.image} />
+          </div>
+          <div className={styles.ceoInfo}>
+            <p className={styles.ceoName}>Igechi Worlu</p>
+            <p className={styles.ceoTitle}>The Chief Executive Officer, Myrtle Solutions, Canada</p>
+          </div>
         </div>
 
         <div className={`${styles.content} ${styles.fadeInRight}`}>

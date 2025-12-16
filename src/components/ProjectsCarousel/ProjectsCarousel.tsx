@@ -53,7 +53,7 @@ export default function ProjectsCarousel() {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h2 className={styles.title}>Our Strategic Projects</h2>
+          <h2 className={styles.title}>OUR STRATEGIC PARTNERS</h2>
           <p className={styles.subtitle}>
             Driving innovation and transformation through trusted partnerships
           </p>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./AboutUs.module.scss";
 import BusinessMeetingImg from "../../../../public/aboutpageimg.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
+import Footer from "@/src/components/Footer/Footer";
 
 export default function About() {
   return (
@@ -40,7 +41,7 @@ export default function About() {
             {/* Mission Column */}
             <ScrollAnimation animation="fadeInUp" delay={200}>
               <div className={styles.column}>
-                <h2 className={styles.columnTitle}>Our Mission</h2>
+                <h2 className={styles.columnTitle}>OUR MISSION</h2>
                 <p className={styles.columnText}>
                   Empower our customers through the use of technology in solving everyday challenges.
                 </p>
@@ -50,7 +51,7 @@ export default function About() {
             {/* Vision Column */}
             <ScrollAnimation animation="fadeInUp" delay={300}>
               <div className={styles.column}>
-                <h2 className={styles.columnTitle}>Our Vision</h2>
+                <h2 className={styles.columnTitle}>OUR VISION</h2>
                 <p className={styles.columnText}>
                   Our desire is to become a global leading project consultancy and solution provider through deployment of technology.
                 </p>
@@ -60,7 +61,7 @@ export default function About() {
             {/* Core Values Column */}
             <ScrollAnimation animation="fadeInUp" delay={400}>
               <div className={styles.column}>
-                <h2 className={styles.columnTitle}>Our Core Values</h2>
+                <h2 className={styles.columnTitle}>OUR DRIVING PRINCIPLES</h2>
                 <ul className={styles.principlesList}>
                   <li>People</li>
                   <li>Adaptability (positive disruption)</li>
@@ -72,6 +73,8 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Footer />
+
     </>
   );
 }

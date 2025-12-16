@@ -1,12 +1,20 @@
 // Footer.js
+'use client';
+
 import { FaTwitter, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import styles from './Footer.module.scss'
 import { IoLogoInstagram } from "react-icons/io";
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
 import Image from "next/image";
 import Logo from '../../../public/Screenshot_20251105-172751~2 (1).jpg'
+import Aradel from '../../../public/partners/logo+-+aradel.png';
+import PipeCoaters from '../../../public/partners/pipeCoaters.png';
+import Nigeriansummit from '../../../public/partners/nigerianEconicSummitgroup.jpg';
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/navbar/aboutus" },
@@ -24,12 +32,9 @@ const Footer = () => {
   ];
 
   const partnerLogos = [
-    { name: "TechCorp" },
-    { name: "InnovateCo" },
-    { name: "GlobalSoft" },
-    { name: "NextGen" },
-    { name: "FutureTech" },
-    { name: "SmartSys" }
+    { name: "Aradel", logo: Aradel },
+    { name: "PIPE COATERS", logo: PipeCoaters },
+    { name: "Nigerian Economic Summit Group", logo: Nigeriansummit }
   ];
 
   return (
@@ -39,7 +44,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className={styles.brandSection}>
             <div className={styles.logoContainer}>
-              <div className={styles.logo}>
+              <div className={styles.logo} onClick={scrollToTop} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToTop()}>
                 <Image src={Logo} alt="Myrtle Solutions Logo" fill className={styles.logoImg}/>
               </div>
               <div className={styles.brandText}>
@@ -91,9 +96,14 @@ const Footer = () => {
               <div className={styles.partnerLogos}>
                 {partnerLogos.map((partner, index) => (
                   <div key={index} className={styles.partnerLogo}>
-                    <div className={styles.logoPlaceholder}>
-                      {partner.name}
-                    </div>
+                    <Image 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      width={120}
+                      height={60}
+                      className={styles.partnerLogoImg}
+                      style={{ objectFit: 'contain' }}
+                    />
                   </div>
                 ))}
               </div>
