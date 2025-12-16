@@ -16,7 +16,7 @@ export default function About() {
             <div className={styles.header}>
               <h1 className={styles.title}>About Us</h1>
               <p className={styles.intro}>
-                Strategic Growth, Global Ambition. Dedicated IT consulting firm headquartered in Canada.
+                Strategic Growth, Global Ambition. Dedicated IT consulting firm, headquartered in Canada.
               </p>
             </div>
           </ScrollAnimation>

@@ -17,7 +17,7 @@ export default function SmartSolutions() {
     },
     {
       title: "Sustainable",
-      description: "Long-term solutions that minimize environmental impact while maximizing value creation and operational efficiency.",
+      description: "Long-term solutions that minimize environmental impact, while maximizing value creation and operational efficiency.",
       icon: "S"
     }
   ];

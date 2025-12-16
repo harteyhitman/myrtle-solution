@@ -18,10 +18,7 @@ export default function OurExpertise() {
             <div className={styles.header}>
               <h1 className={styles.title}>Our Expertise</h1>
               <p className={styles.intro}>
-                Our Expertise: Strategy Meets Execution Consulting: Strategic
-                guidance, landscape analysis, and technological roadmaps. Training
-                (Digital Skills): Intensive, hands-on programs to build capability
-                and workforce skills.
+              Strategy Meets Execution
               </p>
             </div>
           </ScrollAnimation>
@@ -50,8 +47,7 @@ export default function OurExpertise() {
               </div>
               <div className={styles.content}>
                 <p className={styles.description}>
-                  Unlock your business full potential with tailored strategies,
-                  and Srasgie. Our expent consulants drive and growth.
+                Strategic guidance, landscape analysis, and technological roadmaps.
                 </p>
                 {/* <Link href="/navbar/consultation" className={styles.ctaButton}>
                 
@@ -82,13 +78,11 @@ export default function OurExpertise() {
               </div>
               <div className={styles.content}>
                 <p className={styles.description}>
-                  Software Development Bootcamps. Advance your career with
-                  hands-on bootcamps, network and certifications. Empower team
-                  with technology.
+                Intensive, hands-on programs to build capability and workforce skills.
                 </p>
-                <Link href="/navbar/oursolutions" className={styles.ctaButton}>
+                {/* <Link href="/navbar/oursolutions" className={styles.ctaButton}>
                 Learn More →
-                </Link>
+                </Link> */}
               </div>
               </div>
             </ScrollAnimation>
