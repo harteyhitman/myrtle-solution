@@ -16,7 +16,7 @@ import Footer from "@/src/components/Footer/Footer";
 export default function OurPartners() {
   const partners = [
     {
-      name: "Igechi Worly",
+      name: "Igechi Worlu",
       title: "Chief Executive Officer, Myrtle Solutions, Canada",
       image: IgechiWorly
     },
@@ -127,7 +127,7 @@ export default function OurPartners() {
                   </div>
                   <div className={styles.projectDescriptionIndicator}>
                     <span className={styles.arrow}>↓</span>
-                    <span className={styles.indicatorText}>Its write up</span>
+                    {/* <span className={styles.indicatorText}>Its write up</span> */}
                   </div>
                   <div className={styles.projectContent}>
                     <p className={styles.projectDescription}>{project.description}</p>

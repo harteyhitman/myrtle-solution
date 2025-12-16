@@ -27,7 +27,7 @@ export default function OurImpacts() {
 
             <div>
               <strong>Global Reach</strong>
-              <span>Serving diverse clients across 30+ countries worldwide, with localized expertise and global perspective.</span>
+              <span>Serving diverse clients across 10 countries worldwide, with localized expertise and global perspective.</span>
             </div>
           </div>
         </div>
