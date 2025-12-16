@@ -5,6 +5,7 @@ import styles from "./OurExpertise.module.scss";
 import ConsultingImg from "../../../../public/ourexpertise page.jpg";
 import TrainingImg from "../../../../public/heroimages/newslider3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
+import Footer from "@/src/components/Footer/Footer";
 
 export default function OurExpertise() {
   return (
@@ -40,7 +41,7 @@ export default function OurExpertise() {
                     priority
                   />
                   <div className={styles.imageOverlay}>
-                    <h2 className={styles.overlayTitle}>IT CONSULTING</h2>
+                    <h2 className={styles.overlayTitle}>Technology Consulting</h2>
                     <p className={styles.overlaySubtitle}>
                       Strategic Guidance for Business Growth
                     </p>
@@ -72,7 +73,7 @@ export default function OurExpertise() {
                     priority
                   />
                   <div className={styles.imageOverlay}>
-                    <h2 className={styles.overlayTitle}>IT TRAINING</h2>
+                    <h2 className={styles.overlayTitle}> ⁠IT Skills Training</h2>
                     <p className={styles.overlaySubtitle}>
                       Upskilling Your Team for Tomorrow
                     </p>
@@ -94,6 +95,7 @@ export default function OurExpertise() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

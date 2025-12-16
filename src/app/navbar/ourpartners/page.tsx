@@ -11,6 +11,7 @@ import PipeCoaters from "../../../../public/partners/pipeCoaters.png";
 import Nigeriansummit from "../../../../public/partners/nigerianEconicSummitgroup.jpg";
 import mentorPartners from "../../../../public/partners/mentorsPartners.png";
 import Primus from "../../../../public/partners/primus.png";
+import Footer from "@/src/components/Footer/Footer";
 
 export default function OurPartners() {
   const partners = [
@@ -41,28 +42,28 @@ export default function OurPartners() {
     {
       name: "Aradel",
       logo: Aradel,
-      description: "Comprehensive digital transformation project, focusing on cloud infrastructure integration, improving operational efficiency and additional efficiency."
+      description: "Myrtle Solutions and Primus, collaborated to modernize Aradel's connectivity landscape. This initiative involved the end-to-end delivery of multiple telecom towers, resulting in a measurable boost in operational efficiency. The project has successfully bridged communication gaps and optimized data storage capabilities across Aradel's diverse facility network."
     },
     {
       name: "PIPE COATERS",
       logo: PipeCoaters,
-      description: "Implementation of specialized software suite for pipeline control and quality management, ensuring compliance and material waste reduction."
+      description: "For over a decade, Myrtle Solutions, through a strategic partnership with Primus, has been a cornerstone of engineering excellence for Tenaris / Pipe Coaters. Our long-standing collaboration has successfully delivered comprehensive project management and design solutions. Our scope has evolved to encompass international procurement, engineering and electrical recertification, and high-level strategic advisory services."
     },
     {
       name: "Nigerian Economic Summit Group",
       logo: Nigeriansummit,
-      description: "Collaboration on developing digital strategies for economic disruption and stakeholder engagement platform fostering national growth."
+      description: "Between 2021 and 2022, Myrtle Solutions successfully led the organizational transformation and operational launch of the NESG Project Management Office (PMO). This initiative established robust governance frameworks, strategically positioning the PMO to drive consistent, high-quality project and service delivery across the entire organization."
     },
-    {
-      name: "Mentors Partners",
-      logo: mentorPartners,
-      description: "Collaboration on developing digital strategies for economic disruption and stakeholder engagement platform fostering national growth."
-    },
-    {
-      name: "Primus",
-      logo: Primus,
-      description: "Collaboration on developing digital strategies for economic disruption and stakeholder engagement platform fostering national growth."
-    },
+    // {
+    //   name: "Mentors Partners",
+    //   logo: mentorPartners,
+    //   description: "Collaboration on developing digital strategies for economic disruption and stakeholder engagement platform fostering national growth."
+    // },
+    // {
+    //   name: "Primus",
+    //   logo: Primus,
+    //   description: "Collaboration on developing digital strategies for economic disruption and stakeholder engagement platform fostering national growth."
+    // },
   ];
 
   return (
@@ -82,7 +83,7 @@ export default function OurPartners() {
 
           {/* PARTNERS Section */}
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>PARTNERS</h2>
+            <h2 className={styles.sectionTitle}>MEET OUR PARTNERS</h2>
             <div className={styles.partnersGrid}>
               {partners.map((partner, index) => (
                 <div key={index} className={styles.partnerCard}>
@@ -110,7 +111,7 @@ export default function OurPartners() {
 
           {/* PROJECTS Section */}
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>PROJECTS</h2>
+            <h2 className={styles.sectionTitle}>VIEW OUR PROJECTS</h2>
             <div className={styles.projectsGrid}>
               {projects.map((project, index) => (
                 <div key={index} className={styles.projectCard}>
@@ -137,6 +138,7 @@ export default function OurPartners() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

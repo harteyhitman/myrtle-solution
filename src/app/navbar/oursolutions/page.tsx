@@ -9,6 +9,7 @@ import AdvisoryImg from "../../../../public/ourSolution/solution2.jpg";
 import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Button from "@/src/components/Button/Button";
+import Footer from "@/src/components/Footer/Footer";
 
 export default function OurSolutions() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -154,6 +155,7 @@ export default function OurSolutions() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { useState } from "react";
 import styles from "./ContactUs.module.scss";
 import ContactImg from "../../../../public/contact page.jpg";
 import Button from "@/src/components/Button/Button";
+import Footer from "@/src/components/Footer/Footer";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -216,6 +217,7 @@ T1H 7E9)
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
