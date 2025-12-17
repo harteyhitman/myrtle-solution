@@ -4,17 +4,30 @@
   padding: $space-20 0;
   background: linear-gradient(135deg, $bg-secondary 0%, $gray-200 100%);
   overflow: hidden;
+  
+  @include mobile {
+    padding: $space-12 0;
+  }
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 $space-6;
+  
+  @include mobile {
+    padding: 0 $space-4;
+  }
 }
 
 .header {
   text-align: center;
   margin-bottom: $space-12;
+  
+  @include mobile {
+    margin-bottom: $space-8;
+    padding: 0 $space-2;
+  }
 }
 
 .title {
@@ -22,6 +35,12 @@
   font-weight: 700;
   color: $text-primary;
   margin-bottom: $space-4;
+  
+  @include mobile {
+    font-size: $text-2xl;
+    margin-bottom: $space-3;
+    line-height: 1.3;
+  }
 }
 
 .subtitle {
@@ -30,6 +49,12 @@
   font-size: $text-base;
   color: $text-secondary;
   line-height: 1.6;
+  
+  @include mobile {
+    font-size: $text-sm;
+    line-height: 1.5;
+    padding: 0 $space-2;
+  }
 }
 
 /* =============================
@@ -55,6 +80,24 @@
     black 92%,
     transparent 100%
   );
+  
+  @include mobile {
+    padding: $space-4 0;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 3%,
+      black 97%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 3%,
+      black 97%,
+      transparent 100%
+    );
+  }
 }
 
 .track {
@@ -63,6 +106,11 @@
   width: max-content;
   animation: scroll 28s linear infinite;
   will-change: transform;
+  
+  @include mobile {
+    gap: $space-4;
+    animation: scroll 20s linear infinite; // Faster on mobile
+  }
 }
 
 .paused .track {
@@ -88,7 +136,10 @@
   }
 
   @include mobile {
-    flex: 0 0 100%;
+    // flex: 0 0 calc(100% - #{$space-4});
+    padding: $space-4 $space-3;
+    gap: $space-2;
+    min-width: 280px; // Ensure cards aren't too narrow
   }
 }
 
@@ -97,12 +148,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @include mobile {
+    height: 70px;
+    padding: $space-2 0;
+  }
 }
 
 .logo {
   max-height: 70px;
   width: auto;
   object-fit: contain;
+  
+  @include mobile {
+    max-height: 50px;
+    max-width: 100%;
+  }
 }
 
 .cardTitle {
@@ -111,6 +172,11 @@
   color: $text-primary;
   margin: 0;
   text-align: center;
+  
+  @include mobile {
+    font-size: $text-sm;
+    line-height: 1.4;
+  }
 }
 
 .description {
@@ -119,6 +185,11 @@
   color: $text-secondary;
   margin: 0;
   text-align: center;
+  
+  @include mobile {
+    font-size: $text-xs;
+    line-height: 1.5;
+  }
 }
 
 /* =============================

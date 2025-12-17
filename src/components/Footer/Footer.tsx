@@ -20,15 +20,15 @@ const Footer = () => {
     { name: "About Us", href: "/navbar/aboutus" },
     { name: "Our Expertise", href: "/navbar/ourexpertise" },
     { name: "Our Solutions", href: "/navbar/oursolutions" },
-    { name: "Projects", href: "navbar/ourpartners" },
+    { name: "Projects", href: "/navbar/ourpartners" },
     { name: "Contact Us", href: "/navbar/contactus" }
   ];
 
   const companyLinks = [
-    { name: "Careers", href: "/careers" },
-    { name: "Team", href: "/team" },
-    { name: "Blog", href: "/blog" },
-    { name: "News", href: "/news" }
+    { name: "Careers", href: "#" },
+    { name: "Team", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "News", href: "#" }
   ];
 
   const partnerLogos = [
@@ -143,9 +143,9 @@ const Footer = () => {
         <div className={styles.bottomRow}>
           <p>Myrtle Solutions ©2025 Custom MVPs. All Rights Reserved</p>
           <div className={styles.legalLinks}>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Use</a>
-            <a href="/cookies">Cookies</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Cookies</a>
           </div>
         </div>
       </div>
