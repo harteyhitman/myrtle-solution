@@ -34,10 +34,8 @@
   align-items: center;
 
   @include tablet {
-
     padding: 12px;
     gap: $space-12;
-  
 }
 }
 
@@ -242,8 +240,18 @@
   .title {
     font-size: $text-3xl;
     margin: $space-4 0 $space-8;
+    text-align: center;
   }
+  .label{
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
   
+  }
   .impacts > div:hover {
     transform: translateX($space-2);
   }
