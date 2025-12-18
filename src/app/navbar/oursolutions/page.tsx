@@ -10,6 +10,7 @@ import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Button from "@/src/components/Button/Button";
 import Footer from "@/src/components/Footer/Footer";
+import BackButton from "@/src/components/BackButton/BackButton";
 
 export default function OurSolutions() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -82,6 +83,7 @@ export default function OurSolutions() {
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <BackButton />
           {/* Header Section */}
           <ScrollAnimation animation="fadeInUp">
             <div className={styles.header}>

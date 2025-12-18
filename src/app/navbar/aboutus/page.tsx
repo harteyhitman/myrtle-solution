@@ -4,6 +4,7 @@ import styles from "./AboutUs.module.scss";
 import BusinessMeetingImg from "../../../../public/aboutpageimg.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Footer from "@/src/components/Footer/Footer";
+import BackButton from "@/src/components/BackButton/BackButton";
 
 export default function About() {
   return (
@@ -11,6 +12,7 @@ export default function About() {
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <BackButton />
           {/* Header Section */}
           <ScrollAnimation animation="fadeInUp">
             <div className={styles.header}>

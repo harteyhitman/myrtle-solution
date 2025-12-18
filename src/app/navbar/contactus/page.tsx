@@ -7,6 +7,7 @@ import styles from "./ContactUs.module.scss";
 import ContactImg from "../../../../public/contact page.jpg";
 import Button from "@/src/components/Button/Button";
 import Footer from "@/src/components/Footer/Footer";
+import BackButton from "@/src/components/BackButton/BackButton";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -86,6 +87,7 @@ export default function Contact() {
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <BackButton />
           {/* Header Section */}
           <div className={styles.header}>
             <h1 className={styles.title}>Contact Info</h1>

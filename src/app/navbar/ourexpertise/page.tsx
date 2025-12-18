@@ -6,6 +6,7 @@ import ConsultingImg from "../../../../public/ourexpertise page.jpg";
 import TrainingImg from "../../../../public/heroimages/newslider3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Footer from "@/src/components/Footer/Footer";
+import BackButton from "@/src/components/BackButton/BackButton";
 
 export default function OurExpertise() {
   return (
@@ -13,6 +14,7 @@ export default function OurExpertise() {
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <BackButton />
           {/* Header Section */}
           <ScrollAnimation animation="fadeInUp">
             <div className={styles.header}>

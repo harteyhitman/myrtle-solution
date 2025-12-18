@@ -12,6 +12,7 @@ import Nigeriansummit from "../../../../public/partners/nigerianEconicSummitgrou
 import mentorPartners from "../../../../public/partners/mentorsPartners.png";
 import Primus from "../../../../public/partners/primus.png";
 import Footer from "@/src/components/Footer/Footer";
+import BackButton from "@/src/components/BackButton/BackButton";
 
 export default function OurPartners() {
   const partners = [
@@ -71,6 +72,7 @@ export default function OurPartners() {
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <BackButton />
           {/* Header Section */}
           <div className={styles.header}>
             <h1 className={styles.title}>Our Partners & Projects</h1>

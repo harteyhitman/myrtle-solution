@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     try {
       const { data, error } = await resend.emails.send({
-        from: 'Myrtle Solutions <onboarding@resend.dev>', // Change after domain verification
+        from: 'Myrtle Solutions <noreply@myrtlesolutions.org>',
         to: [COMPANY_EMAIL],
         replyTo: email,
         subject: `Contact Form: ${safeSubject}`,
