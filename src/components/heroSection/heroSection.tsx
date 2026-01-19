@@ -110,16 +110,15 @@ export default function HeroSection() {
                     <div className={styles.contentWrapper}>
                         {/* Headline */}
                         <h1 className={styles.headline}>
-                            Deploying{' '}
-                            <span className={styles.highlight}>Technology</span>{' '}
-                            Delivering{' '}
+                        Bridging{' '}
+                            <span className={styles.highlight}>the Gap through</span>{' '}
+                            Technology {' '}
                             <span className={styles.highlight}>Transformation.</span>
                         </h1>
 
                         {/* Sub-headline */}
                         <p className={styles.subheadline}>
-                            Your Trusted Canadian Partner in Project Consultancy, Strategic Advisory, and Digital Skills Training.
-                        </p>
+                        Your Trusted  Partner in Technology Consultancy, Strategic Advisory, and Digital Skills Training.                        </p>
 
                         {/* CTA Buttons */}
                         <div className={styles.ctaContainer}>

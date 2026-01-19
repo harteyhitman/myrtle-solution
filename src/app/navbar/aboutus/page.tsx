@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
 import styles from "./AboutUs.module.scss";
@@ -6,7 +9,31 @@ import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Footer from "@/src/components/Footer/Footer";
 import BackButton from "@/src/components/BackButton/BackButton";
 
+const principlesData = [
+  {
+    title: "People",
+    content: "Our team is our greatest asset. We invest in continuous learning, professional development, and creating an inclusive environment where every team member can thrive. We believe that empowered people drive exceptional results and innovation."
+  },
+  {
+    title: "Adaptability (positive disruption)",
+    content: "In a rapidly evolving technological landscape, we embrace change and view disruption as an opportunity for growth. We continuously adapt our strategies, methodologies, and solutions to stay ahead of industry trends and deliver cutting-edge results."
+  },
+  {
+    title: "Customer Satisfaction",
+    content: "Customer success is at the heart of everything we do. We go beyond meeting expectations to exceed them, building long-term partnerships based on trust, transparency, and delivering measurable value that drives our clients' business forward."
+  },
+  {
+    title: "Excellence (zero quality compromise)",
+    content: "We maintain the highest standards in every project, ensuring quality is never compromised. From initial consultation to final delivery, we meticulously craft solutions that are robust, scalable, and built to last. Excellence is not an option—it's our standard."
+  }
+];
+
 export default function About() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const toggleAccordion = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
   return (
     <>
       <Navbar />
@@ -50,6 +77,48 @@ export default function About() {
               </div>
             </ScrollAnimation>
 
+                        {/* Core Values Column */}
+                        <ScrollAnimation animation="fadeInUp" delay={400}>
+              <div className={styles.column}>
+                <h2 className={styles.columnTitle}>OUR DRIVING PRINCIPLES</h2>
+                <div className={styles.accordionContainer}>
+                  {principlesData.map((principle, index) => (
+                    <div key={index} className={styles.accordionItem}>
+                      <button
+                        className={`${styles.accordionHeader} ${expandedIndex === index ? styles.active : ''}`}
+                        onClick={() => toggleAccordion(index)}
+                        aria-expanded={expandedIndex === index}
+                      >
+                        <span className={styles.accordionTitle}>{principle.title}</span>
+                        <span className={styles.accordionIcon}>
+                          <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 20 20" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={styles.chevronIcon}
+                          >
+                            <path 
+                              d="M5 7.5L10 12.5L15 7.5" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                      <div
+                        className={`${styles.accordionContent} ${expandedIndex === index ? styles.expanded : ''}`}
+                      >
+                        <p className={styles.accordionText}>{principle.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollAnimation>
             {/* Vision Column */}
             <ScrollAnimation animation="fadeInUp" delay={300}>
               <div className={styles.column}>
@@ -60,18 +129,7 @@ export default function About() {
               </div>
             </ScrollAnimation>
 
-            {/* Core Values Column */}
-            <ScrollAnimation animation="fadeInUp" delay={400}>
-              <div className={styles.column}>
-                <h2 className={styles.columnTitle}>OUR DRIVING PRINCIPLES</h2>
-                <ul className={styles.principlesList}>
-                  <li>People</li>
-                  <li>Adaptability (positive disruption)</li>
-                  <li>Customer Satisfaction</li>
-                  <li>Excellence (zero quality compromise)</li>
-                </ul>
-              </div>
-            </ScrollAnimation>
+
           </div>
         </div>
       </div>

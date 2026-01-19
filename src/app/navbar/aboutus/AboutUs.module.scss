@@ -144,6 +144,9 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: $shadow-sm;
   min-height: 350px;
+  display: flex;
+  flex-direction: column;
+
   @include desktop {
     padding: $space-12 $space-10;
   }
@@ -192,37 +195,187 @@
   }
 }
 
-.principlesList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+// Accordion Styles
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: 0;
+  flex: 1;
+  justify-content: space-between;
+}
 
-  li {
-    font-family: $font-family-primary;
-    color: $text-secondary;
-    line-height: 1.8;
-    font-size: $text-base;
-    margin-bottom: $space-3;
-    padding-left: $space-6;
-    position: relative;
+.accordionItem {
+  border: 1px solid rgba($primary, 0.1);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(to bottom, $bg-primary, rgba($primary, 0.02));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    border-color: rgba($primary, 0.3);
+    box-shadow: 0 4px 12px rgba($primary, 0.1);
+    transform: translateY(-2px);
 
     &::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: $primary;
-      font-size: $text-xl;
-      font-weight: 600;
-      line-height: 1.2;
+      opacity: 1;
+    }
+  }
+
+  &:has(.active) {
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 6px 20px rgba($primary, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-5 $space-6;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: $font-family-primary;
+  color: $text-primary;
+  font-size: $text-base;
+  font-weight: 600;
+  position: relative;
+  min-height: 60px;
+
+  &:hover {
+    background: rgba($primary, 0.03);
+  }
+
+  &.active {
+    background: rgba($primary, 0.05);
+    color: $primary;
+
+    .accordionIcon {
+      background: linear-gradient(135deg, $primary, $tertiary);
+      color: $white;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    .chevronIcon {
+      transform: rotate(180deg);
     }
+  }
 
-    @include desktop {
-      font-size: $text-lg;
+  @include desktop {
+    padding: $space-6 $space-6;
+    font-size: $text-lg;
+    min-height: 70px;
+  }
+
+  @include mobile {
+    padding: $space-4 $space-5;
+    min-height: 56px;
+  }
+}
+
+.accordionTitle {
+  flex: 1;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.accordionIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  background: rgba($primary, 0.1);
+  color: $primary;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: $space-4;
+
+  @include desktop {
+    width: 36px;
+    height: 36px;
+  }
+
+  @include mobile {
+    width: 28px;
+    height: 28px;
+    margin-left: $space-3;
+  }
+}
+
+.chevronIcon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  padding: 0 $space-6;
+  opacity: 0;
+
+  &.expanded {
+    max-height: 500px;
+    padding: 0 $space-6 $space-6 $space-6;
+    opacity: 1;
+  }
+
+  @include desktop {
+    padding: 0 $space-6;
+
+    &.expanded {
+      padding: 0 $space-6 $space-6 $space-6;
     }
+  }
+
+  @include mobile {
+    padding: 0 $space-5;
+
+    &.expanded {
+      padding: 0 $space-5 $space-5 $space-5;
+    }
+  }
+}
+
+.accordionText {
+  font-family: $font-family-primary;
+  color: $text-secondary;
+  line-height: 1.8;
+  font-size: $text-sm;
+  margin: 0;
+  padding-top: $space-2;
+
+  @include desktop {
+    font-size: $text-base;
+    line-height: 1.9;
   }
 }
 
