@@ -101,7 +101,7 @@
   // Variant: Gold (Gradient)
   &.gold {
     background: linear-gradient(135deg, #D3AF5E 0%, #E8C872 100%);
-    color: $primary;
+    color: var(--bg-primary);
     box-shadow: 
       0 8px 30px rgba(211, 175, 94, 0.3),
       0 2px 10px rgba(211, 175, 94, 0.2);
@@ -120,13 +120,13 @@
 
   // Variant: Blue
   &.blue {
-    background: $white;
-    color: #6B8FA8;
-    border: 2px solid #6B8FA8;
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent);
 
     &:hover:not(:disabled) {
-      background: #6B8FA8;
-      color: $white;
+      background: var(--accent);
+      color: var(--bg-primary);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(107, 143, 168, 0.4);
     }
@@ -134,13 +134,13 @@
 
   // Variant: Green
   &.green {
-    background: $white;
-    color: #7A9A8A;
-    border: 2px solid #7A9A8A;
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent);
 
     &:hover:not(:disabled) {
-      background: #7A9A8A;
-      color: $white;
+      background: var(--accent);
+      color: var(--bg-primary);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(122, 154, 138, 0.4);
     }
@@ -148,13 +148,13 @@
 
   // Variant: Yellow
   &.yellow {
-    background: $white;
-    color: #A89A7A;
-    border: 2px solid #A89A7A;
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent);
 
     &:hover:not(:disabled) {
-      background: #A89A7A;
-      color: $white;
+      background: var(--accent);
+      color: var(--bg-primary);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(168, 154, 122, 0.4);
     }
@@ -162,8 +162,8 @@
 
   // Variant: White
   &.white {
-    background: $white;
-    color: $primary;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
     &:hover:not(:disabled) {
@@ -175,12 +175,12 @@
   // Variant: Outline
   &.outline {
     background: transparent;
-    color: $primary;
-    border: 2px solid $primary;
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
 
     &:hover:not(:disabled) {
-      background: $primary;
-      color: $white;
+      background: var(--text-primary);
+      color: var(--bg-primary);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba($primary, 0.3);
     }

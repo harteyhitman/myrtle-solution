@@ -4,71 +4,17 @@ import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./OurSolutions.module.scss";
-import TechConsultingImg from "../../../../public/ourSolution/solution1.jpg";
-import AdvisoryImg from "../../../../public/ourSolution/solution2.jpg";
-import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
+// import TechConsultingImg from "../../../../public/ourSolution/solution1.jpg";
+// import AdvisoryImg from "../../../../public/ourSolution/solution2.jpg";
+// import TrainingImg from "../../../../public/ourSolution/solution3.jpg";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Button from "@/src/components/Button/Button";
 import Footer from "@/src/components/Footer/Footer";
 import BackButton from "@/src/components/BackButton/BackButton";
+import { solutions, Solution } from "../../../data/solutionsData";
 
 export default function OurSolutions() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
-
-  const solutions = [
-    {
-      id: "technology-consulting",
-      title: "Technology Consulting",
-      description: "Innovative Strategies for Digital Transformation",
-      fullDescription: "Deploying future-ready technology and driving business transformation.",
-      image: TechConsultingImg,
-      gradient: "blue",
-      buttonColor: "blue",
-      items: [
-        "Information Technology Consulting",
-        "Web and Mobile Application Development",
-        "Business Transformation and ERP Integration",
-        "Technology Product Design, Development and Launch"
-      ]
-    },
-    {
-      id: "advisory",
-      title: "Advisory",
-      description: "Expert Guidance & Strategic Planning",
-      fullDescription: "Strategic, high-level guidance for resilience, compliance, and optimized resource management.",
-      image: AdvisoryImg,
-      gradient: "green",
-      buttonColor: "green",
-      items: [
-        "Cybersecurity and GRC",
-        "PCI - DSS Audit",
-        "Enterprise Agile Transformation",
-        "Project and Program Management Office as a Service",
-        "Procurement and Sourcing"
-      ]
-    },
-    {
-      id: "training",
-      title: "IT Skill Training",
-      description: "Empowering the Next Generation",
-      fullDescription: "Comprehensive training programs focused on high-demand, practical skills.",
-      image: TrainingImg,
-      gradient: "yellow",
-      buttonColor: "yellow",
-      items: [
-        "Project Management",
-        "Program Management",
-        "Technical Program Management",
-        "Project Planning using MsP, seePrimavera",
-        "Product Management",
-        "Scrum and Hybrid",
-        "Business Analysis",
-        "Data Analysis",
-        "Cybersecurity and GRC",
-        "Human Resources"
-      ]
-    }
-  ];
 
   const handleExpand = (id: string) => {
     setExpandedCard(id);

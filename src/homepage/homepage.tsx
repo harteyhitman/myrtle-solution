@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroSection from '../components/heroSection/heroSection'
-import CeoNote from '../components/CeoNote/CeoNote'
+import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs'
 import OurStory from '../components/OurStory/OurStory'
 import CoreStrengths from '../components/CoreStrengths/CoreStrengths'
 import SmartSolutions from '../components/SmartSolutions/SmartSolutions'
@@ -13,7 +13,7 @@ const HomePage = () => {
     return (
         <div>
             <HeroSection />
-            <CeoNote />
+            <WhyChooseUs />
             <OurStory />
             <CoreStrengths />
             <SmartSolutions />

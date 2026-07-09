@@ -142,6 +142,21 @@ T1H 7E9)
                   </div>
                 </div>
 
+                {/* Calendly Call to Action */}
+                <div className={styles.calendlyCta}>
+                  <Button
+                    href="https://calendly.com/your-username/30min"
+                    variant="gold"
+                    size="lg"
+                    as="link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    fullWidth
+                  >
+                    🗓️ Schedule a Free Consultation
+                  </Button>
+                </div>
+
                 {/* Contact Form */}
                 <form onSubmit={handleSubmit} className={styles.contactForm}>
                   <div className={styles.formGroup}>

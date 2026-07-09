@@ -89,17 +89,8 @@ export default function OurPartners() {
             <div className={styles.partnersGrid}>
               {partners.map((partner, index) => (
                 <div key={index} className={styles.partnerCard}>
-                  <div className={styles.partnerImageWrapper}>
-                    <Image 
-                      src={partner.image} 
-                      alt={partner.name} 
-                      fill
-                      className={styles.partnerImage}
-                      priority={index === 0}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-                  </div>
                   <div className={styles.partnerInfo}>
+                    <div className={styles.partnerInitial}>{partner.name.split(' ').map(n => n[0]).join('')}</div>
                     <h3 className={styles.partnerName}>{partner.name}</h3>
                     <p className={styles.partnerTitle}>{partner.title}</p>
                   </div>

@@ -3,7 +3,7 @@
 
 .wrapper {
     padding: $space-20 0;
-    background: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     position: relative;
     //   display: flex;
     flex: 1;
@@ -18,7 +18,7 @@
         left: 0;
         right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, $border-color, transparent);
+        background: linear-gradient(90deg, transparent, var(--border-color), transparent);
     }
 }
 
@@ -66,8 +66,8 @@
     font-size: $text-4xl;
     font-weight: 700;
     background: linear-gradient(135deg, $primary 0%, $tertiary 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
@@ -76,8 +76,8 @@
         padding: $space-6;
         margin-bottom: $space-4;
         border-radius: $radius-2xl;
-        background: $bg-primary;
-        border: 1px solid $border-color;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
         transition: all $transition-base;
         position: relative;
         overflow: hidden;
@@ -97,7 +97,7 @@
         &:hover {
             transform: translateX($space-3);
             box-shadow: $shadow-lg;
-            border-color: $gray-300;
+            border-color: var(--border-color);
 
             &::before {
                 opacity: 1;
@@ -109,7 +109,7 @@
         font-size: $text-xl;
         margin-bottom: $space-2;
         font-weight: 600;
-        color: $text-primary;
+        color: var(--text-primary);
         position: relative;
 
         &::before {
@@ -120,7 +120,7 @@
     }
 
     p {
-        color: $text-secondary;
+        color: var(--text-secondary);
         margin-bottom: 0;
         line-height: 1.7;
         font-size: $text-base;

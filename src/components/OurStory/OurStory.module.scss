@@ -3,7 +3,7 @@
 
 .wrapper {
   padding: $space-20 0;
-  background: linear-gradient(135deg, $bg-secondary 0%, $gray-200 100%);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -64,8 +64,8 @@
   font-weight: 700;
   margin-bottom: $space-8;
   background: linear-gradient(135deg, $primary 0%, $tertiary 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
   
@@ -83,7 +83,7 @@
 }
 
 .text {
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: $space-6;
   font-size: $text-lg;
