@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next';
 import Favicon from '../components/Favicon/Favicon';
+import ThemeProvider from '../components/ThemeProvider/ThemeProvider';
 import '../styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -31,13 +32,15 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght=400..900&display=swap"
           rel="stylesheet"
         />
         <Favicon />
       </head>
       <body>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

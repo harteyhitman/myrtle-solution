@@ -4,7 +4,7 @@
 .wrapper {
   padding: $space-20 0;
   min-height: 100vh;
-  background: $gray-200;
+  background: var(--bg-secondary);
   position: relative;
 
   @include mobile {
@@ -49,7 +49,7 @@
   font-size: $text-4xl;
   font-weight: 700;
   margin-bottom: $space-6;
-  color: $text-primary;
+  // color: var(--secondary);
   line-height: 1.2;
   letter-spacing: 0;
 
@@ -70,7 +70,7 @@
 .intro {
   font-family: $font-family-primary;
   font-size: $text-lg;
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin: 0;
   font-weight: 400;
@@ -100,9 +100,11 @@
   box-shadow: $shadow-lg;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 650px;
+  background: var(--bg-primary);
+  
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: $shadow-xl;
   }
 }
 
@@ -195,6 +197,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: var(--bg-primary);
 
   @include desktop {
     padding: $space-12 $space-10;
@@ -208,7 +211,7 @@
 .description {
   font-family: $font-family-primary;
   font-size: $text-base;
-  color: $text-primary;
+  color: var(--text-primary);
   line-height: 1.8;
   margin-bottom: $space-8;
   flex: 1;
@@ -222,7 +225,7 @@
   font-family: $font-family-primary;
   font-size: $text-base;
   font-weight: 600;
-  color: $text-primary;
+  color: var(--text-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -230,7 +233,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: $primary;
+    color: var(--primary);
     transform: translateX(2px);
   }
 
@@ -239,21 +242,59 @@
   }
 }
 
-// Gradient Backgrounds
-.consultingColumn {
-  background: linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 30%, #CFD8DC 100%);
-  
-  .content {
-    background: linear-gradient(180deg, #E3F2FD 0%, #CFD8DC 100%);
+.expertiseList {
+  list-style: none;
+  padding: 0;
+  margin-top: $space-4;
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: $space-2;
+    font-family: $font-family-primary;
+    font-size: $text-base;
+    color: var(--text-primary);
+    line-height: 1.6;
+
+    &::before {
+      content: "\2022"; /* Bullet point */
+      // color: $primary;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      font-size: 1.2em;
+      line-height: 1;
+    }
   }
 }
 
-.trainingColumn {
-  background: linear-gradient(180deg, #C8E6C9 0%, #A5D6A7 30%, #BBDEFB 100%);
+.expertiseListItem {
+  // Specific styling for list items if needed
+}
+
+// Gradient Backgrounds
+.technologyconsultingColumn {
+  background: linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 30%, #CFD8DC 100%);
   
-  .content {
-    background: linear-gradient(180deg, #C8E6C9 0%, #BBDEFB 100%);
-  }
+  // .content {
+  //   background: linear-gradient(180deg, #E3F2FD 0%, #CFD8DC 100%);
+  // }
+}
+
+.advisoryColumn {
+  background: linear-gradient(180deg, #E8F5E9 0%, #C8E6C9 30%, #BBDEFB 100%);
+  
+  // .content {
+  //   background: linear-gradient(180deg, #E8F5E9 0%, #BBDEFB 100%);
+  // }
+}
+
+.trainingColumn {
+  background: linear-gradient(180deg, #FFFDE7 0%, #FFF59D 30%, #BBDEFB 100%);
+  
+  // .content {
+  //   background: linear-gradient(180deg, #FFFDE7 0%, #BBDEFB 100%);
+  // }
 }
 
 // Animation

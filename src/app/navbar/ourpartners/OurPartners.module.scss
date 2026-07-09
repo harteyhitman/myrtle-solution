@@ -4,7 +4,7 @@
 .wrapper {
   padding: $space-20 0;
   min-height: 100vh;
-  background: $gray-200;
+  background: var(--bg-secondary);
   position: relative;
 
   @include mobile {
@@ -51,7 +51,7 @@
   font-size: $text-4xl;
   font-weight: 700;
   margin-bottom: $space-6;
-  color: $text-primary;
+  // color: var(--secondary);
   line-height: 1.2;
   letter-spacing: 0;
 
@@ -72,7 +72,7 @@
 .intro {
   font-family: $font-family-primary;
   font-size: $text-lg;
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin: 0;
   font-weight: 400;
@@ -95,7 +95,7 @@
   font-size: $text-3xl;
   font-weight: 700;
   margin-bottom: $space-10;
-  color: $text-primary;
+  color: var(--text-primary);
   text-align: left;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -142,6 +142,29 @@
   width: 100%;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
+  background: var(--bg-primary);
+  border-radius: $radius-2xl;
+  padding: $space-10;
+  box-shadow: $shadow-lg;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
 
   // Staggered animation delays
   @for $i from 1 through 4 {
@@ -151,48 +174,47 @@
   }
 }
 
-.partnerImageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  max-width: 100%;
-  margin-bottom: $space-4;
-  // border: 2px solid $black;
-  overflow: hidden;
-  background: $gray-100;
-  border-radius: $radius-lg;
-  overflow: hidden;
-  box-shadow: $shadow-lg;
-  @include mobile {  
-     border-radius: $radius-lg;
-    overflow: hidden;
-    box-shadow: $shadow-lg;
-}
-}
-.partnerImage {
-  width: 100%;
-  height: 400px !important;
-  object-fit: cover;
-  display: block;
-
-  @include mobile {
-    height: 500px !important;
-    object-fit: cover;
-  }
-}
-
 .partnerInfo {
   width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+}
+
+.partnerInitial {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--tertiary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $text-4xl;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: $space-6;
+  box-shadow: $shadow-md;
+  border: 3px solid var(--secondary);
+
+  @include desktop {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+  }
+
+  @include mobile {
+    width: 80px;
+    height: 80px;
+    font-size: $text-3xl;
+  }
 }
 
 .partnerName {
   font-size: $text-lg;
   font-weight: 700;
-  color: $text-primary;
+  color: var(--text-primary);
   margin-bottom: $space-2;
   line-height: 1.3;
 
@@ -207,7 +229,7 @@
 
 .partnerTitle {
   font-size: $text-base;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin: 0;
   line-height: 1.5;
   font-weight: 400;
@@ -225,7 +247,7 @@
 .divider {
   width: 100%;
   height: 1px;
-  background: $border-color;
+  background: var(--border-color);
   margin: $space-16 0;
   opacity: 0;
   animation: fadeInDown 0.6s ease-out 0.6s forwards;
@@ -253,6 +275,29 @@
   flex-direction: column;
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
+  background: var(--bg-primary);
+  border-radius: $radius-2xl;
+  padding: $space-8;
+  box-shadow: $shadow-lg;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--tertiary));
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
 
   // Staggered animation delays
   @for $i from 1 through 3 {
@@ -266,16 +311,16 @@
   position: relative;
   width: 100%;
   min-height: 150px;
-  // border: 2px solid $black;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: $space-6;
   margin-bottom: $space-4;
-  background: $bg-primary;
-  border-radius: $radius-lg;
+  background: var(--bg-secondary);
+  border-radius: $radius-xl;
   overflow: hidden;
-  box-shadow: $shadow-lg;
+  box-shadow: $shadow-md;
+
   @include mobile {
     min-height: 120px;
     padding: $space-4;
@@ -299,7 +344,7 @@
   gap: $space-2;
   margin-bottom: $space-4;
   font-weight: 700;
-  color: $text-primary;
+  color: var(--secondary);
 }
 
 .arrow {
@@ -322,7 +367,7 @@
 
 .projectDescription {
   font-size: $text-base;
-  color: $text-secondary;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
   font-weight: 400;
@@ -387,4 +432,3 @@
     transform: translateX(0);
   }
 }
-

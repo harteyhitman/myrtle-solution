@@ -1,7 +1,7 @@
 // Button.tsx
 'use client';
 
-import { ButtonHTMLAttributes, ReactNode, MouseEventHandler } from 'react';
+import { ButtonHTMLAttributes, ReactNode, MouseEventHandler, AnchorHTMLAttributes } from 'react';
 import Link from 'next/link';
 import styles from './Button.module.scss';
 
@@ -17,48 +17,59 @@ export type ButtonVariant =
 
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
+type CommonButtonProps = {
   children: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  href?: string;
   className?: string;
   fullWidth?: boolean;
-  as?: 'button' | 'link';
-}
+};
+
+type ButtonAsButtonProps = CommonButtonProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> & {
+  as?: 'button';
+  href?: never;
+  target?: never;
+  rel?: never;
+};
+
+type ButtonAsLinkProps = CommonButtonProps & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'className'> & {
+  as: 'link';
+  href: string;
+  target?: string;
+  rel?: string;
+};
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 export default function Button({
   children,
   variant = 'primary',
   size = 'md',
-  href,
   className = '',
   fullWidth = false,
-  as,
+  as = 'button',
   ...props
 }: ButtonProps) {
   const baseClasses = `${styles.button} ${styles[variant]} ${styles[size]} ${fullWidth ? styles.fullWidth : ''} ${className}`;
 
-  // Automatically use link if href is provided, unless explicitly set to button
-  const shouldRenderAsLink = href && as !== 'button';
-
-  if (shouldRenderAsLink) {
-    // Extract onClick and other event handlers that should be on the Link
-    const { onClick, ...linkProps } = props;
+  if (as === 'link') {
+    const { href, target, rel, ...rest } = props as ButtonAsLinkProps;
     return (
       <Link 
         href={href} 
         className={baseClasses} 
-        onClick={onClick as MouseEventHandler<HTMLAnchorElement> | undefined}
-        {...(linkProps as any)}
+        target={target}
+        rel={rel}
+        {...rest}
       >
         {children}
       </Link>
     );
   }
 
+  const { ...rest } = props as ButtonAsButtonProps;
   return (
-    <button className={baseClasses} {...props}>
+    <button className={baseClasses} {...rest}>
       {children}
     </button>
   );

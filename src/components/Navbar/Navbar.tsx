@@ -8,6 +8,7 @@ import styles from './Navbar.module.scss';
 import Image from 'next/image';
 import Logo from '@/public/Screenshot_20251105-172751~2 (1).jpg';
 import Button from '../Button/Button';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,25 +60,30 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className={styles.navCTA}>
-            <Button href="/navbar/contactus" variant="gold" size="md" as="link">
-              Contact Us
-            </Button>
-          </div>
+          <div className={styles.navActions}>
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
-          {/* Mobile Menu Button */}
-          <button
-            className={`${styles.mobileMenuButton} ${
-              isMobileMenuOpen ? styles.active : ''
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+            {/* CTA Button */}
+            <div className={styles.navCTA}>
+              <Button href="/navbar/contactus" variant="gold" size="md" as="link">
+                Contact Us
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className={`${styles.mobileMenuButton} ${
+                isMobileMenuOpen ? styles.active : ''
+              }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

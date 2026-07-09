@@ -6,9 +6,9 @@
   gap: $space-2;
   padding: $space-3 $space-6;
   background-color: transparent;
-  border: 2px solid $border-color;
+  border: 2px solid var(--border-color);
   border-radius: $radius-lg;
-  color: $text-primary;
+  color: var(--text-primary);
   font-size: $text-base;
   font-weight: 500;
   cursor: pointer;
@@ -17,9 +17,9 @@
   font-family: $font-family-primary;
 
   &:hover {
-    background-color: rgba($text-primary, 0.05);
-    border-color: $text-secondary;
-    color: $text-primary;
+    background-color: var(--bg-secondary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
     transform: translateX(-4px);
   }
 
@@ -28,7 +28,7 @@
   }
 
   &:focus {
-    outline: 2px solid rgba($primary, 0.3);
+    outline: 2px solid var(--secondary);
     outline-offset: 2px;
   }
 
