@@ -49,7 +49,7 @@
   font-size: $text-4xl;
   font-weight: 700;
   margin-bottom: $space-6;
-  color: var(--secondary);
+  color: var(--text-primary);
   line-height: 1.2;
   letter-spacing: 0;
 
@@ -267,11 +267,6 @@
     }
   }
 }
-
-.expertiseListItem {
-  // Specific styling for list items if needed
-}
-
 // Gradient Backgrounds
 .technologyconsultingColumn {
   background: linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 30%, #CFD8DC 100%);
