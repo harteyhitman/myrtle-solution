@@ -60,9 +60,10 @@
   font-size: $text-4xl;
   font-weight: 700;
   background: linear-gradient(135deg, $primary 0%, $tertiary 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
   background-clip: text;
+
 }
 
 .impacts {
