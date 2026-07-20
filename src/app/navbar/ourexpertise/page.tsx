@@ -38,9 +38,9 @@ export default function OurExpertise() {
                         priority
                       />
                       <div className={styles.imageOverlay}>
-                        <h2 className={styles.overlayTitle}>{solution.title}</h2>
+                        {/* <h2 className={styles.overlayTitle}>{solution.title}</h2> */}
                         <p className={styles.overlaySubtitle}>
-                          {solution.description}
+                          {/* {solution.description} */}
                         </p>
                       </div>
                     </div>

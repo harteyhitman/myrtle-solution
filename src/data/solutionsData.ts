@@ -42,7 +42,6 @@ export const solutions: Solution[] = [
       "PCI - DSS Audit",
       "Enterprise Agile Transformation",
       "Project and Program Management Office as a Service",
-      "Procurement and Sourcing"
     ]
   },
   {
@@ -63,7 +62,6 @@ export const solutions: Solution[] = [
       "Business Analysis",
       "Data Analysis",
       "Cybersecurity and GRC",
-      "Human Resources"
     ]
   }
 ];

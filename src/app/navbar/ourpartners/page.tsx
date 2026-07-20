@@ -11,6 +11,7 @@ import PipeCoaters from "../../../../public/partners/pipeCoaters.png";
 import Nigeriansummit from "../../../../public/partners/nigerianEconicSummitgroup.jpg";
 import mentorPartners from "../../../../public/partners/mentorsPartners.png";
 import Primus from "../../../../public/partners/primus.png";
+import Verisult from "../../../../public/partners/verisult.png";
 import Footer from "@/src/components/Footer/Footer";
 import BackButton from "@/src/components/BackButton/BackButton";
 
@@ -18,7 +19,7 @@ export default function OurPartners() {
   const partners = [
     {
       name: "Igechi Worlu",
-      title: "Chief Executive Officer, Myrtle Solutions, Canada",
+      title: "Lead consultant, Myrtle Solutions, Canada",
       image: IgechiWorly
     },
 
@@ -28,12 +29,12 @@ export default function OurPartners() {
       image: DarlingtonAnaele
     },
     {
-      name: "Chidi Udeze",
-      title: "Lead, Technology & IT Infrastructure",
+      name: "Nnamdi Udeze",
+      title: "Lead consultant- Technology",
       image: ChidiUdeze
     },
     {
-      name: "Tajiri Izoma",
+      name: "Tejiri Izoma",
       title: "Relationship Manager",
       image: TajiriIzoma
     }
@@ -54,6 +55,11 @@ export default function OurPartners() {
       name: "Nigerian Economic Summit Group",
       logo: Nigeriansummit,
       description: "Between 2021 and 2022, Myrtle Solutions successfully led the organizational transformation and operational launch of the NESG Project Management Office (PMO). This initiative established robust governance frameworks, strategically positioning the PMO to drive consistent, high-quality project and service delivery across the entire organization."
+    },
+    {
+      name: "Verisult",
+      logo: Verisult,
+      description: "Myrtle Solutions collaborates with Verisult to enhance career development, talent placement, and smart tech solutions. Together, we support individuals in building meaningful careers and businesses in finding skilled, diverse talent, while delivering innovative solutions that drive success."
     },
     // {
     //   name: "Mentors Partners",

@@ -159,10 +159,17 @@
   max-height: 70px;
   width: auto;
   object-fit: contain;
+  transition: filter 0.3s ease;
   
   @include mobile {
     max-height: 50px;
     max-width: 100%;
+  }
+}
+
+[data-theme="dark"] {
+  .logo {
+    filter: invert(1);
   }
 }
 

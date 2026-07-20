@@ -10,6 +10,7 @@ import Logo from '../../../public/Screenshot_20251105-172751~2 (1).jpg'
 import Aradel from '../../../public/partners/logo+-+aradel.png';
 import PipeCoaters from '../../../public/partners/pipeCoaters.png';
 import Nigeriansummit from '../../../public/partners/nigerianEconicSummitgroup.jpg';
+import Verisult from '../../../public/partners/verisult.png';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -34,7 +35,8 @@ const Footer = () => {
   const partnerLogos = [
     { name: "Aradel", logo: Aradel },
     { name: "PIPE COATERS", logo: PipeCoaters },
-    { name: "Nigerian Economic Summit Group", logo: Nigeriansummit }
+    { name: "Nigerian Economic Summit Group", logo: Nigeriansummit },
+    { name: "Verisult", logo: Verisult }
   ];
 
   return (
@@ -56,11 +58,12 @@ const Footer = () => {
             <div className={styles.companyInfo}>
               <p>
                 <FaMapMarkerAlt />
-                123 Business Avenue, Toronto, ON M5V 2T6, Canada
+                Address: 160 stratton road SE Medicine Hat 
+T1B 0G3
               </p>
               <p>
                 <FaEnvelope />
-                <a href="mailto:info@myrtlesolutions.ca">info@myrtlesolutions.ca</a>
+                <a href="mailto:info@myrtlesolutions.ca">support@myrtlesolutions.ca</a>
               </p>
             </div>
           </div>
@@ -82,9 +85,9 @@ const Footer = () => {
             <h3>Company</h3>
             <div className={styles.links}>
               {companyLinks.map((link) => (
-                <a key={link.name} href={link.href}>
+                <p key={link.name} >
                   {link.name}
-                </a>
+                </p>
               ))}
             </div>
           </div>
@@ -143,9 +146,9 @@ const Footer = () => {
         <div className={styles.bottomRow}>
           <p>Myrtle Solutions ©2025 Custom MVPs. All Rights Reserved</p>
           <div className={styles.legalLinks}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Cookies</a>
+            <p >Privacy Policy</p>
+            <p >Terms of Use</p>
+            <p >Cookies</p>
           </div>
         </div>
       </div>

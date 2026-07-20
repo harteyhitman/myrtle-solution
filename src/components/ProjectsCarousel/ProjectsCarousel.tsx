@@ -9,6 +9,7 @@ import PipeCoaters from '../../../public/partners/pipeCoaters.png';
 import Nigeriansummit from '../../../public/partners/nigerianEconicSummitgroup.jpg';
 import mentorPartners from '../../../public/partners/mentorsPartners.png';
 import Primus from '../../../public/partners/primus.png';
+import Verisult from '../../../public/partners/verisult.png';
 
 const projects = [
   {
@@ -40,6 +41,12 @@ const projects = [
     logo: Primus,
     description:
       'Technology-driven solutions supporting operational excellence and growth.',
+  },
+  {
+    name: 'Verisult',
+    logo: Verisult,
+    description:
+      'Collaboration on career development, talent placement, and smart tech solutions to build meaningful careers and high-performing teams.',
   },
 ];
 
