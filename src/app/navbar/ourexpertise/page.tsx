@@ -1,18 +1,25 @@
+'use client';
+
 import Navbar from "@/src/components/Navbar/Navbar";
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./OurExpertise.module.scss";
 import ScrollAnimation from "@/src/components/ScrollAnimation/ScrollAnimation";
 import Footer from "@/src/components/Footer/Footer";
 import BackButton from "@/src/components/BackButton/BackButton";
-import { solutions, Solution } from "../../../data/solutionsData"; // Import solutions data and type
+import { expertise, Expertise } from "../../../data/expertiseData";
 
 export default function OurExpertise() {
+  const [activeTab, setActiveTab] = useState<string>("tech-consulting");
+  const activeExpertise = expertise.find(e => e.id === activeTab) || expertise[0];
+
   return (
     <>
       <Navbar />
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <BackButton />
+          
           {/* Header Section */}
           <ScrollAnimation animation="fadeInUp">
             <div className={styles.header}>
@@ -23,44 +30,60 @@ export default function OurExpertise() {
             </div>
           </ScrollAnimation>
 
-          {/* Solutions Columns */}
-          <div className={styles.columns}>
-            {solutions.map((solution: Solution, index: number) => (
-              <ScrollAnimation key={solution.id} animation={index % 2 === 0 ? "fadeInLeft" : "fadeInRight"} delay={100 + (index * 100)}>
-                <div className={`${styles.column} ${styles[solution.id.replace(/-/g, '') + 'Column']}`}>
-                  <div className={styles.imageSection}>
-                    <div className={styles.imageWrapper}>
-                      <Image
-                        src={solution.image}
-                        alt={solution.title}
-                        fill
-                        className={styles.image}
-                        priority
-                      />
-                      <div className={styles.imageOverlay}>
-                        {/* <h2 className={styles.overlayTitle}>{solution.title}</h2> */}
-                        <p className={styles.overlaySubtitle}>
-                          {/* {solution.description} */}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.content}>
-                    <p className={styles.description}>
-                      {solution.fullDescription}
-                    </p>
-                    <ul className={styles.expertiseList}>
-                      {solution.items.map((item: string, itemIndex: number) => (
-                        <li key={itemIndex} className={styles.expertiseListItem}>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          {/* Tab Navigation */}
+          <ScrollAnimation animation="fadeInUp" delay={100}>
+            <div className={styles.tabs}>
+              {expertise.map((item) => (
+                <button
+                  key={item.id}
+                  className={`${styles.tab} ${activeTab === item.id ? styles.activeTab : ''}`}
+                  onClick={() => setActiveTab(item.id)}
+                >
+                  <span className={styles.tabIcon}>{item.icon}</span>
+                  <span className={styles.tabTitle}>{item.title}</span>
+                </button>
+              ))}
+            </div>
+          </ScrollAnimation>
+
+          {/* Active Tab Content */}
+          <ScrollAnimation animation="fadeIn" delay={200}>
+            <div className={styles.contentArea}>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={activeExpertise.image}
+                  alt={activeExpertise.title}
+                  fill
+                  className={styles.contentImage}
+                  priority
+                />
+                <div className={`${styles.gradientOverlay} ${styles[activeExpertise.color]}`}></div>
+              </div>
+              <div className={styles.textContent}>
+                <h2 className={styles.contentTitle}>
+                  {activeExpertise.title}
+                </h2>
+                <p className={styles.contentSubtitle}>
+                  {activeExpertise.subtitle}
+                </p>
+                <p className={styles.contentDescription}>
+                  {activeExpertise.description}
+                </p>
+                
+                <div className={styles.keyPoints}>
+                  <h3 className={styles.keyPointsTitle}>Key Focus Areas</h3>
+                  <ul className={styles.keyPointsList}>
+                    {activeExpertise.keyPoints.map((point, i) => (
+                      <li key={i} className={styles.keyPointItem}>
+                        <span className={styles.checkmark}>✓</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </ScrollAnimation>
-            ))}
-          </div>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
       <Footer />
